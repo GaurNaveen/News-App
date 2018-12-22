@@ -12,7 +12,7 @@ The app is primarily being developed by me as a part of my personal project. Thi
 ### Minimum Requirements
 - [Xcode](https://itunes.apple.com/us/app/xcode/id497799835) - The easiest way to get Xcode is from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12), but you can also download it from [developer.apple.com](https://developer.apple.com/) if you have an AppleID registered with an Apple Developer account.
 
-**You should be able to open `News.xcodeproject` and run the app on the iOS Simulator**
+**You should be able to open `NewsApp.xcodeproject` and run the app on the iOS Simulator**
 ## Guidelines
 #### Interface
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
