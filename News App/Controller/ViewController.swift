@@ -21,14 +21,14 @@ class ViewController: UIViewController {
             switch result {
             case .success(let response):
                 let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
+                let news = try! JSONDecoder().decode(News.self, from: response.data)
                 print(json)
+                print(news)
             case .failure(let error):
                 print(error)
             }
             
         })
-        
-        
         
     }
     
