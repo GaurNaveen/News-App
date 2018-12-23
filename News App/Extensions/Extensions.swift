@@ -47,7 +47,7 @@ extension UIView {
         layer.borderColor = UIColor().borderColor().cgColor
         
     }
-
+    
 }
 
 // MARK: - Extension Methods for UIColor.

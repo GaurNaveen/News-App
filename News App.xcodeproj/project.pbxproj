@@ -18,6 +18,7 @@
 		B6EF676B21CE241C00AAF04C /* News_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF676A21CE241C00AAF04C /* News_AppTests.swift */; };
 		B6EF677621CE241C00AAF04C /* News_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF677521CE241C00AAF04C /* News_AppUITests.swift */; };
 		B6EF678421CE268400AAF04C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF678321CE268400AAF04C /* Extensions.swift */; };
+		B6EF678721CE344500AAF04C /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF678621CE344500AAF04C /* NewsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B6EF677521CE241C00AAF04C /* News_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News_AppUITests.swift; sourceTree = "<group>"; };
 		B6EF677721CE241C00AAF04C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6EF678321CE268400AAF04C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B6EF678621CE344500AAF04C /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		FA71822D167692A324C431A4 /* Pods-News App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.release.xcconfig"; path = "Pods/Target Support Files/Pods-News App/Pods-News App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,11 +131,12 @@
 		B6EF675421CE241800AAF04C /* News App */ = {
 			isa = PBXGroup;
 			children = (
-				B6EF675521CE241800AAF04C /* AppDelegate.swift */,
+				B6EF678821CE344F00AAF04C /* Network Layer */,
 				B6EF678521CE2EA200AAF04C /* Extensions */,
-				B6EF675721CE241800AAF04C /* ViewController.swift */,
-				B6EF675921CE241800AAF04C /* Main.storyboard */,
 				B6EF675C21CE241C00AAF04C /* Assets.xcassets */,
+				B6EF675721CE241800AAF04C /* ViewController.swift */,
+				B6EF675521CE241800AAF04C /* AppDelegate.swift */,
+				B6EF675921CE241800AAF04C /* Main.storyboard */,
 				B6EF675E21CE241C00AAF04C /* LaunchScreen.storyboard */,
 				B6EF676121CE241C00AAF04C /* Info.plist */,
 			);
@@ -164,6 +167,14 @@
 				B6EF678321CE268400AAF04C /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6EF678821CE344F00AAF04C /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF678621CE344500AAF04C /* NewsService.swift */,
+			);
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 		C67654F04EE0FFBB5F629127 /* Frameworks */ = {
@@ -408,6 +419,7 @@
 			files = (
 				B6EF675821CE241800AAF04C /* ViewController.swift in Sources */,
 				B6EF678421CE268400AAF04C /* Extensions.swift in Sources */,
+				B6EF678721CE344500AAF04C /* NewsService.swift in Sources */,
 				B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
