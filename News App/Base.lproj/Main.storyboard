@@ -17,22 +17,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv4-bd-5nN">
-                                <rect key="frame" x="74" y="157" width="192" height="383"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.32549019610000002" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8M-3W-tZS">
+                                <rect key="frame" x="67" y="249" width="240" height="128"/>
+                            </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-gh-dCc">
+                                <rect key="frame" x="50" y="418" width="309" height="192"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G8M-3W-tZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="6uS-vS-h4l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9dg-gh-dCc" secondAttribute="trailing" constant="16" id="8o1-xZ-RYa"/>
+                            <constraint firstItem="G8M-3W-tZS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="229" id="FoF-sC-ETB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G8M-3W-tZS" secondAttribute="bottom" constant="290" id="aSS-lB-vCJ"/>
+                            <constraint firstItem="9dg-gh-dCc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="gtG-hL-S0w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9dg-gh-dCc" secondAttribute="bottom" constant="57" id="olt-O1-beV"/>
+                            <constraint firstItem="9dg-gh-dCc" firstAttribute="top" secondItem="G8M-3W-tZS" secondAttribute="bottom" constant="41" id="pRu-XD-bas"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G8M-3W-tZS" secondAttribute="trailing" constant="68" id="qxl-0K-DgE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="G8M-3W-tZS" id="irI-0D-b6r"/>
+                        <outlet property="webView" destination="9dg-gh-dCc" id="N63-Z0-yrm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="107.49625187406298"/>
+            <point key="canvasLocation" x="-924" y="-331"/>
+        </scene>
+        <!--Trending-->
+        <scene sceneID="PTu-j5-8aJ">
+            <objects>
+                <viewController id="gKa-aa-sce" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olR-Ky-3vH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="efx-sh-yrP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trending" id="KVs-r7-1O3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIL-CL-q4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="188"/>
+        </scene>
+        <!--Headlines-->
+        <scene sceneID="wuA-He-R4C">
+            <objects>
+                <viewController id="m9l-Lw-iw5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n9H-Ve-pwu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dR7-1h-d7C"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Headlines" id="P3M-ab-PYM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMV-8o-bI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850" y="-662"/>
+        </scene>
+        <!--Main Tab Controller-->
+        <scene sceneID="prn-lH-aQZ">
+            <objects>
+                <tabBarController id="OLV-7G-QWI" customClass="MainTabController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sIV-dg-vuB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="m9l-Lw-iw5" kind="relationship" relationship="viewControllers" id="TE6-k2-XjD"/>
+                        <segue destination="gKa-aa-sce" kind="relationship" relationship="viewControllers" id="Vco-kE-U9Y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOg-Op-VGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="-330"/>
         </scene>
     </scenes>
 </document>
