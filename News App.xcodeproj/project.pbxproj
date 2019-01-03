@@ -160,9 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				B6EF678D21CFDAE300AAF04C /* Controller */,
-				B6EF678C21CFDAD800AAF04C /* View */,
 				B6EF678921CFDAA200AAF04C /* Model */,
-				B6EF678821CE344F00AAF04C /* Network Layer */,
+				B6EF678821CE344F00AAF04C /* Services */,
 				B6EF678521CE2EA200AAF04C /* Extensions */,
 				B6EF675C21CE241C00AAF04C /* Assets.xcassets */,
 				B637200C21DA50F6007BE810 /* Table VIew Cells */,
@@ -200,12 +199,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B6EF678821CE344F00AAF04C /* Network Layer */ = {
+		B6EF678821CE344F00AAF04C /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B6EF678621CE344500AAF04C /* NewsService.swift */,
 			);
-			path = "Network Layer";
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B6EF678921CFDAA200AAF04C /* Model */ = {
@@ -216,13 +215,6 @@
 				B6EF679021CFDD6600AAF04C /* News.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B6EF678C21CFDAD800AAF04C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B6EF678D21CFDAE300AAF04C /* Controller */ = {

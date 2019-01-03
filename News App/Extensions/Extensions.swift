@@ -48,6 +48,17 @@ extension UIView {
         
     }
     
+    /// Adds a shadow effect to the view.
+    func dropShadow(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: -1, height: 1)
+        layer.shadowRadius = 5
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shouldRasterize = false
+    }
+    
 }
 
 // MARK: - Extension Methods for UIColor.
@@ -79,7 +90,11 @@ extension UIImageView {
                     DispatchQueue.main.async {
                         self?.image = image
                     }
+                } else {
+                    print("Nope")
                 }
+            } else {
+                print("Yeah")
             }
         }
     }
