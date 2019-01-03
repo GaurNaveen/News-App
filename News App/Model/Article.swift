@@ -10,12 +10,12 @@ import Foundation
 
 /// Holds the News Article information like author, url to news article etc.
 struct Article: Decodable {
-    let source: Source
+    let source: Source?
     let author: String?
-    let title: String
-    let description: String
-    let url: String
-    let urlToImage: String
-    let publishedAt: String
-    let content: String
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+    let publishedAt: String?
+    let content: String?
 }

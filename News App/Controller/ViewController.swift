@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 //
 //        })
 //
-        newsProvider.request(.wsj(domain: domain), completion: { (result) in
+        newsProvider.request(.getNews(country: "us"), completion: { (result) in
             switch result {
             case .success(let response):
                 //let json = try! JSONSerialization.jsonObject(with: response.data, options: [])

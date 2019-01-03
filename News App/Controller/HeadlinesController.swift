@@ -10,11 +10,13 @@
 //
 
 import UIKit
-
+import Moya
 class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    private var count = 4 // intially count should be 0. After the news has been got , do reload.
+    private var count = 8 // intially count should be 0. After the news has been got , do reload.
+    
+    var headlines: News? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,13 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .black // change the color for the separtor lines.
+        getHeadlines()
     }
     
-    /// This function defines how many rows there will be in the table view per section.
+    /// This function defines how many rows there will be in the table view depending
+    /// on the articles.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return count
+        return headlines?.articles.count ?? 0
     }
     
     /// This function is used to setup table view cells.
@@ -37,14 +41,38 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         else {
             fatalError("Could not dequeue cell with identifier: cell")
         }
-        cell.getHealines(indexPath: indexPath) // pass the index path here.
+        // setup each cell with the news.
+        cell.displayNews(news: headlines, indexPath: indexPath)
         return cell
     }
     
-    /// This function is used to fetch headlines/latest news.
-    func getNews() {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "headlinesTodashboard", sender: self)
+    }
+    
+    ///
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
+    
+    /// This function is used to fetch headlines/latest news from the api.
+    func getHeadlines() {
+        let newsProvider = MoyaProvider<NewsService>()
+        newsProvider.request(.getNews(country: "us")) { (result) in
+            switch result {
+            case .success(let response):
+                if response.statusCode == 200 {
+                    self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Here is the error \(error)")
+            }
+        }
+    }
+    
+    
+    
 }
 
 

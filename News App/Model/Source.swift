@@ -10,6 +10,6 @@ import Foundation
 
 /// Holds the information regarding the source of article.
 struct Source: Decodable {
-    let id: String
-    let name: String
+    let id: String?
+    let name: String?
 }
