@@ -34,6 +34,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.separatorColor = .black // change the color for the separtor lines.
         getHeadlines() // call to the function that gets the headlines from the api.
         tableView.refreshControl = refresher // adds the pull to refresh to the table view.
+        tableView.isHidden = true
     }
     
     /// This function defines how many rows there will be in the table view depending
@@ -61,6 +62,20 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         performSegue(withIdentifier: "headlinesTodashboard", sender: self)
     }
     
+    /// This function is called fraction of time before displaying the cells.It is being used to
+    /// animate the table view cells.
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+         let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = animationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+        
+    }
+    
+    
     /// Function sets up the url for the clicked news article, so the WKWebview
     /// loads the right article.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,6 +97,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if response.statusCode == 200 {
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
                     self.tableView.reloadData()
+                    self.tableView.isHidden = false
                     if self.refresher.isRefreshing {
                         self.refresher.endRefreshing()
                     }
