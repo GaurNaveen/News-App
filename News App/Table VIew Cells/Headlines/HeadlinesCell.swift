@@ -49,7 +49,6 @@ class HeadlinesCell: UITableViewCell {
          //to check if the optional value is nil or not.
         if news.articles[indexPath.row].urlToImage != nil {
            newsImage.load(url: URL(string: news.articles[indexPath.row].urlToImage!)!)
-            //newsImage.downloadImage(from: news.articles[indexPath.row].url!)
         }
         newsImage.layer.cornerRadius = 5
     }

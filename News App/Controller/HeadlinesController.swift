@@ -15,7 +15,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
     private var headlines: News? = nil // Holds the headlines fetched from the api.
-    
+    private var selectedIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,25 +35,28 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     /// This function is used to setup table view cells.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get the reference of the cell through the reusable identifier.
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HeadlinesCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?HeadlinesCell
             else {
                 fatalError("Could not dequeue cell with identifier: cell")
         }
         // setup each cell with the news.
         cell.displayNews(news: headlines, indexPath: indexPath)
-        //downloadImage(cell: cell, indexPath: indexPath)
         return cell
     }
     
     /// When the user selects a cell , the app takes the user to a new view where the
     /// user can view the article in it's full capacity.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
         performSegue(withIdentifier: "headlinesTodashboard", sender: self)
     }
     
-    ///
+    /// Function sets up the url for the clicked news article, so the WKWebview
+    /// loads the right article.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = (headlines?.articles[selectedIndex].url)!
+        }
     }
     
     /// This function is used to fetch headlines/latest news from the api. After the news
@@ -75,6 +78,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    
 }
 
 

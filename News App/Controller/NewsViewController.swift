@@ -14,13 +14,19 @@ import UIKit
 import WebKit
 class NewsViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
-    var url = "https://www.theverge.com/2019/1/3/18166399/iphone-android-apple-samsung-smartphone-sales-peak"
+    var url1 = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        webView.load(URLRequest(url: URL(string: url)!))
-    
+        loadWebPage()
     }
-
+    
+    /// This function is used to load the webpage in the wkwebview
+    /// so the user can read the full news article.
+    func loadWebPage() {
+        let url = URL(string: url1)
+        guard url != nil else {return}
+        let request = URLRequest(url: url!)
+        webView.load(request)
+    }
 }

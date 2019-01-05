@@ -148,7 +148,7 @@
         <!--News View Controller-->
         <scene sceneID="ifv-SO-ozB">
             <objects>
-                <viewController id="xzT-8f-17z" customClass="NewsViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsWebView" id="xzT-8f-17z" customClass="NewsViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wSq-Xx-DnT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
