@@ -11,7 +11,6 @@
 
 import UIKit
 import Moya
-import SVProgressHUD
 class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
@@ -98,13 +97,24 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                 // If the api request has been successful , then set the headlines object
                 // with the data loaded and reload the table view.
                 if response.statusCode == 200 {
+                    // Parse JSON Response
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
-                    self.tableView.reloadData()
+                    self.tableView.reloadData() // Reload the table view when the data is loaded.
                     self.tableView.isHidden = false
+                    // This is to stop the refreshing when the user pulls to refresh.
                     if self.refresher.isRefreshing {
                         self.refresher.endRefreshing()
                     }
+                    
+                } else if response.statusCode == 500 {
+                    // Display an Alert Box Here
+                    self.presentAlert(message: "There was an error connecting to the server")
+                } else if response.statusCode == 429 {
+                    fatalError("Rate Limit have been reached.")
+                } else if response.statusCode == 400 {
+                    fatalError("Bad Request. The request was unacceptable, often due to a missing or misconfigured parameter.")
                 }
+                
             case .failure(let error):
                 // handle this error better.
                 print("Here is the error \(error)")
@@ -112,20 +122,13 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
     }
     
-    
-    /// This function is used to display a circular progress bar while news article that
-    /// is selected the user is being loaded.
-    ///
-    /// - Parameter status: A string is passed which tells the function whether to show the
-    ///                     progress bar or to dismiss it.
-    func displayProgressCircle(status: String) {
-        if status == "Show" {
-            SVProgressHUD.show(withStatus: "Loading Article")
-        } else {
-            SVProgressHUD.dismiss()
-        }
+    /// This is use to present an alert to the user indicating something went wrong while
+    /// loading the news from the api.
+    func presentAlert(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }
-
-
