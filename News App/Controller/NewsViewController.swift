@@ -12,12 +12,15 @@
 
 import UIKit
 import WebKit
-class NewsViewController: UIViewController {
+import SVProgressHUD
+class NewsViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     var url1 = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayProgressCircle(status: "Show")
+        webView.navigationDelegate = self // Used to access the didFinishNavigation method.
         loadWebPage()
     }
     
@@ -29,4 +32,24 @@ class NewsViewController: UIViewController {
         let request = URLRequest(url: url!)
         webView.load(request)
     }
+    
+    /// This function dismiss the progress bar when the WKWebview has finished loading the page.
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("End")
+        displayProgressCircle(status: "End")
+    }
+    
+    /// This function is used to display a circular progress bar while news article that
+    /// is selected the user is being loaded.
+    ///
+    /// - Parameter status: A string is passed which tells the function whether to show the
+    ///                     progress bar or to dismiss it.
+    func displayProgressCircle(status: String) {
+        if status == "Show" {
+            SVProgressHUD.show(withStatus: "Loading Article")
+        } else {
+            SVProgressHUD.dismiss()
+        }
+    }
+
 }

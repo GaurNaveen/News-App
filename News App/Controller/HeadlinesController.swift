@@ -11,6 +11,7 @@
 
 import UIKit
 import Moya
+import SVProgressHUD
 class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
@@ -37,6 +38,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.isHidden = true
     }
     
+    // MARK: - Table view setup here.
     /// This function defines how many rows there will be in the table view depending
     /// on the articles.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +64,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         performSegue(withIdentifier: "headlinesTodashboard", sender: self)
     }
     
+    // MARK: - Provides animation on the table view cells.
     /// This function is called fraction of time before displaying the cells.It is being used to
     /// animate the table view cells.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -75,7 +78,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
-    
     /// Function sets up the url for the clicked news article, so the WKWebview
     /// loads the right article.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,6 +86,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
     }
     
+    // MARK: - Used to fetch the news headlines from the api.
     /// This function is used to fetch headlines/latest news from the api. After the news
     /// has been loaded it reloads the table view to update it with the latest data.
     @objc
@@ -109,6 +112,20 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
     }
     
+    
+    /// This function is used to display a circular progress bar while news article that
+    /// is selected the user is being loaded.
+    ///
+    /// - Parameter status: A string is passed which tells the function whether to show the
+    ///                     progress bar or to dismiss it.
+    func displayProgressCircle(status: String) {
+        if status == "Show" {
+            SVProgressHUD.show(withStatus: "Loading Article")
+        } else {
+            SVProgressHUD.dismiss()
+        }
+    }
+
 }
 
 
