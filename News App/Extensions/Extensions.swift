@@ -15,6 +15,8 @@
 import Foundation
 import UIKit
 
+private let imageCache = NSCache<NSURL, UIImage>()
+
 // MARK: - Extension Methods for UIView.
 extension UIView {
     
@@ -84,18 +86,27 @@ extension UIColor {
 
 extension UIImageView {
     func load(url: URL) {
+        // initally set the image to nil.
+        self.image = nil
+        
+        // check if the image is already in the cache.
+        if let imageToCache = imageCache.object(forKey: url as NSURL) {
+            self.image = imageToCache
+            return
+        }
+        // Download the image asynchronously if the image is not present in the cache.
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
+                        // cache the image
+                        let imageToCache = image
+                        imageCache.setObject(imageToCache, forKey: url as NSURL)
                         self?.image = image
                     }
-                } else {
-                    print("Nope")
                 }
-            } else {
-                print("Yeah")
             }
         }
     }
+  
 }
