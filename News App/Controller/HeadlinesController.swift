@@ -16,6 +16,15 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
     private var headlines: News? = nil // Holds the headlines fetched from the api.
     private var selectedIndex = 0
+    
+    // This is used to add pull to refreh the news headlines on the table view.
+    private lazy var refresher: UIRefreshControl = {
+       let refresherControl = UIRefreshControl()
+        refresherControl.tintColor = .black
+        refresherControl.addTarget(self, action: #selector(getHeadlines), for: .valueChanged)
+        return refresherControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +33,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.dataSource = self
         tableView.separatorColor = .black // change the color for the separtor lines.
         getHeadlines() // call to the function that gets the headlines from the api.
+        tableView.refreshControl = refresher // adds the pull to refresh to the table view.
     }
     
     /// This function defines how many rows there will be in the table view depending
@@ -61,6 +71,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     /// This function is used to fetch headlines/latest news from the api. After the news
     /// has been loaded it reloads the table view to update it with the latest data.
+    @objc
     func getHeadlines() {
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.getNews(country: "us", category: "science")) { (result) in
@@ -71,6 +82,9 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if response.statusCode == 200 {
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
                     self.tableView.reloadData()
+                    if self.refresher.isRefreshing {
+                        self.refresher.endRefreshing()
+                    }
                 }
             case .failure(let error):
                 // handle this error better.

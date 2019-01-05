@@ -12,10 +12,9 @@
 import UIKit
 import Moya
 class HeadlinesCell: UITableViewCell {
+    
     @IBOutlet weak var newsImage: UIImageView!
-    
     @IBOutlet weak var newsDescription: UILabel!
-    
     @IBOutlet weak var newsView: UIView!
     
     /// This function is used to setup the table view cell with the news.
