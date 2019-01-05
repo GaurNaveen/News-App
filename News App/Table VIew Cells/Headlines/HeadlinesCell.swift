@@ -34,6 +34,11 @@ class HeadlinesCell: UITableViewCell {
     }
     
     /// This function is used to remove the optional from the news variable.
+    ///
+    /// - Parameters:
+    ///   - news: It is the news object that is loaded from the api. It
+    ///           contains info about the news.
+    ///   - indexPath: This is the index path of each table view cell.
     func removeOptional(news : News?,indexPath: IndexPath) {
         if let value = news {
             print(value)
@@ -43,6 +48,11 @@ class HeadlinesCell: UITableViewCell {
     /// Loads image in the image view for each cell.The image when loaded is cached.
     /// This is because UITableView reuses cells. Loading them without caching will cause the
     /// async requests to return at different time and mess up the order.
+    ///
+    /// - Parameters:
+    ///   - news: It is the news object that is loaded from the api. It
+    ///           contains info about the news.
+    ///   - indexPath: This is the index path of each table view cell.
     func loadImage(news: News,indexPath: IndexPath) {
         newsImage.contentMode = .scaleAspectFill;
         newsImage.layer.masksToBounds = true; // need this so that the image doesn't overflows.
@@ -54,6 +64,11 @@ class HeadlinesCell: UITableViewCell {
     }
     
     /// Used to display the title of the news below the image.
+    ///
+    /// - Parameters:
+    ///   - news: It is the news object that is loaded from the api. It
+    ///           contains info about the news.
+    ///   - indexPath: This is the index path of each table view cell.
     func diplayNewsTitle(news: News,indexPath: IndexPath) {
         newsDescription.text = news.articles[indexPath.row].title
     }
