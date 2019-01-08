@@ -24,6 +24,12 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
         loadWebPage()
     }
     
+    /// This function makes sure that when the user hits the back button
+    /// and this view is not visible then it will stop the progress bar.
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
+    
     /// This function is used to load the webpage in the wkwebview
     /// so the user can read the full news article.
     func loadWebPage() {

@@ -37,13 +37,16 @@ class NewsTopicController: UIViewController {
 // MARK: - Setup for table view here.
 extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsTopics.count
+        // We make the count half because we have two views that will display the
+        // topic name on each cell.
+        return newsTopics.count/2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NewsTopicsCell else {
             fatalError("Could not dequeue cell with identifier: cell")
         }
+
         return cell
     }
     
