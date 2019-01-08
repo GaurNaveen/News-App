@@ -27,12 +27,17 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTableView()
+        getHeadlines() // call to the function that gets the headlines from the api.
+    }
+    
+    /// This function is used to setup some of table view properties like
+    /// delegate, datasource, refreshControl etc.
+    func setupTableView() {
         // setup the delegate and datasource for the table view
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .black // change the color for the separtor lines.
-        getHeadlines() // call to the function that gets the headlines from the api.
         tableView.refreshControl = refresher // adds the pull to refresh to the table view.
         tableView.isHidden = true
     }

@@ -51,5 +51,5 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
             SVProgressHUD.dismiss()
         }
     }
-
+   
 }
