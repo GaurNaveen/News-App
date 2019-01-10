@@ -11,7 +11,9 @@
 
 import UIKit
 import Moya
+
 class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
     private var headlines: News? = nil // Holds the headlines fetched from the api.

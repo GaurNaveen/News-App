@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import Moya
 
 class NewsTopicController: UIViewController {
     
@@ -23,7 +24,13 @@ class NewsTopicController: UIViewController {
         // Do any additional setup after loading the view.
         setupNavBar()
         setupNewsTopicArray()
+        getParticularNews(newsTopic: "premier league")
+        configureTableView()
+    }
+    
+    private func configureTableView() {
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
     }
     
     /// This function is used to set the title for the navigation bar.
@@ -36,6 +43,25 @@ class NewsTopicController: UIViewController {
     /// Fills the array with the hardcoded news topic.
     private func setupNewsTopicArray() {
         newsTopics = ["Fashion","NBA","NFL","Soccer","Music"]
+    }
+    
+    // MARK: - This function is used to connect to the api and get the data from it.
+    func getParticularNews(newsTopic: String) {
+        let newsService = MoyaProvider<specificNewsService>()
+        newsService.request(.getNews(query: newsTopic), completion: { (result) in
+            switch result {
+            case .success(let response):
+                if response.statusCode == 200 {
+                    // Parse JSON Response
+                    let json = try! JSONDecoder().decode(News.self, from: response.data)
+                    print("naveen",json)
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+            
+        })
     }
     
 }
