@@ -138,7 +138,6 @@
                         <viewLayoutGuide key="safeArea" id="HKE-6W-xtL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Featured" image="Featured" id="CR9-eg-une">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="7"/>
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="25" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
