@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1791.2" y="187.68472906403943"/>
         </scene>
-        <!--News Topic Controller-->
+        <!--News Topic View-->
         <scene sceneID="rEa-mm-qfs">
             <objects>
-                <viewController id="gL7-Ms-Zgt" customClass="NewsTopicController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="News Topic View" id="gL7-Ms-Zgt" customClass="NewsTopicController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bXZ-qn-5sR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,15 +92,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-IF-Pa8">
-                                                    <rect key="frame" x="166" y="60" width="102" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01y-Al-TrQ">
+                                                    <rect key="frame" x="15" y="6" width="144" height="128"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2i-aj-S6z">
+                                                    <rect key="frame" x="206" y="6" width="144" height="128"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="01y-Al-TrQ" secondAttribute="bottom" constant="6.6699999999999999" id="0me-x7-8tg"/>
+                                                <constraint firstItem="01y-Al-TrQ" firstAttribute="leading" secondItem="hGa-v2-YtS" secondAttribute="leading" constant="15" id="6U5-uV-m22"/>
+                                                <constraint firstItem="v2i-aj-S6z" firstAttribute="leading" secondItem="hGa-v2-YtS" secondAttribute="leading" constant="206" id="DeB-y7-ucD"/>
+                                                <constraint firstAttribute="trailing" secondItem="01y-Al-TrQ" secondAttribute="trailing" constant="216" id="Gku-35-mVq"/>
+                                                <constraint firstItem="01y-Al-TrQ" firstAttribute="top" secondItem="hGa-v2-YtS" secondAttribute="top" constant="6" id="KPY-NF-OMb"/>
+                                                <constraint firstAttribute="bottom" secondItem="v2i-aj-S6z" secondAttribute="bottom" constant="6.6699999999999999" id="bZI-t2-9jm"/>
+                                                <constraint firstItem="v2i-aj-S6z" firstAttribute="top" secondItem="hGa-v2-YtS" secondAttribute="top" constant="6" id="hYO-Zc-ZY2"/>
+                                                <constraint firstAttribute="trailing" secondItem="v2i-aj-S6z" secondAttribute="trailing" constant="25" id="sGf-tK-ESw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="topicSelectionView1" destination="01y-Al-TrQ" id="LEd-mc-j5r"/>
+                                            <outlet property="topicSelectionView2" destination="v2i-aj-S6z" id="57O-bk-Q5S"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -122,7 +137,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HKE-6W-xtL"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="CR9-eg-une"/>
+                    <tabBarItem key="tabBarItem" title="Featured" image="Featured" id="CR9-eg-une">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="7"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="25" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="navigationBar" destination="FCg-2A-cAA" id="mty-Uo-cIT"/>
                         <outlet property="tableView" destination="iIQ-N5-4DC" id="2kZ-py-cIE"/>
@@ -308,6 +326,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Featured" width="37.5" height="37.5"/>
         <image name="ICON" width="20" height="20"/>
         <image name="NewsIcon" width="20" height="20"/>
     </resources>

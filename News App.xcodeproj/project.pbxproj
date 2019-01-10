@@ -129,18 +129,18 @@
 		B637200C21DA50F6007BE810 /* Table VIew Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B637200D21DA5111007BE810 /* Headlines */,
-				B63BB68021E47D43002A359E /* NewsTopic */,
+				B637200D21DA5111007BE810 /* HeadlinesView */,
+				B63BB68021E47D43002A359E /* NewsTopicView */,
 			);
 			path = "Table VIew Cells";
 			sourceTree = "<group>";
 		};
-		B637200D21DA5111007BE810 /* Headlines */ = {
+		B637200D21DA5111007BE810 /* HeadlinesView */ = {
 			isa = PBXGroup;
 			children = (
 				B637200E21DA51AF007BE810 /* HeadlinesCell.swift */,
 			);
-			path = Headlines;
+			path = HeadlinesView;
 			sourceTree = "<group>";
 		};
 		B63BB67D21E47AA1002A359E /* Helper */ = {
@@ -151,12 +151,12 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		B63BB68021E47D43002A359E /* NewsTopic */ = {
+		B63BB68021E47D43002A359E /* NewsTopicView */ = {
 			isa = PBXGroup;
 			children = (
 				B63BB68121E47D81002A359E /* NewsTopicsCell.swift */,
 			);
-			path = NewsTopic;
+			path = NewsTopicView;
 			sourceTree = "<group>";
 		};
 		B6EF674921CE241800AAF04C = {
