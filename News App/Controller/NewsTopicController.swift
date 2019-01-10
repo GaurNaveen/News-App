@@ -28,6 +28,7 @@ class NewsTopicController: UIViewController {
         navigationBar.topItem?.title = "News Topic"
     }
     
+    // MARK: - Here are the News Topic names.
     /// Fills the array with the hardcoded news topic.
     private func setupNewsTopicArray() {
         newsTopics = ["Fashion","NBA","NFL","Soccer","Music"]
@@ -43,6 +44,7 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
         return newsTopics.count/2
     }
     
+    /// This function is used to setup the table view cells.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NewsTopicsCell else {
             fatalError("Could not dequeue cell with identifier: cell")
