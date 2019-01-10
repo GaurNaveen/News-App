@@ -325,7 +325,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Featured" width="37.5" height="37.5"/>
+        <image name="Featured" width="57" height="57"/>
         <image name="ICON" width="20" height="20"/>
         <image name="NewsIcon" width="20" height="20"/>
     </resources>

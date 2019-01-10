@@ -20,6 +20,7 @@ class NewsTopicController: UIViewController {
         // Do any additional setup after loading the view.
         setupNavBar()
         setupNewsTopicArray()
+        tableView.separatorStyle = .none
     }
     
     /// This function is used to set the title for the navigation bar.
@@ -50,7 +51,19 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
             fatalError("Could not dequeue cell with identifier: cell")
         }
         cell.setupSelectionViews()
+        cell.setSelectionViewNames(topicName: newsTopics)
         return cell
+    }
+    
+    // MARK: - Add animations on the table view cells.
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = animationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
     }
     
 }

@@ -15,13 +15,44 @@ import UIKit
 class NewsTopicsCell: UITableViewCell {
 
     @IBOutlet weak var topicSelectionView1: UIView!
-    
     @IBOutlet weak var topicSelectionView2: UIView!
+    
+    // MARK: - Here are the two labels that will display the news topic name.
+    var topicLabel1: UILabel =  {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "American Typewriter", size: 25)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    var topicLabel2: UILabel =  {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "American Typewriter", size: 25)
+        label.textAlignment = .center
+        return label
+    }()
     
     /// This function is used to set the color of the views that holds the news topic names.
     func setupSelectionViews() {
         topicSelectionView1.backgroundColor = getColor(colorName: "customRed")
         topicSelectionView2.backgroundColor = getColor(colorName: "lightBlue")
+    }
+    
+    func setSelectionViewNames(topicName: [String]) {
+        // Add the two label created programattically to the two views.
+        topicSelectionView1.addSubview(topicLabel1)
+        topicSelectionView2.addSubview(topicLabel2)
+        setAutoLayoutOnLabels() // set auto layout on these labels.
+        topicLabel1.text = "Hey"
+        topicLabel2.text = "Hey"
+    }
+    
+    func setAutoLayoutOnLabels() {
+        topicLabel1.anchor(top: topicSelectionView1.topAnchor, leading: topicSelectionView1.leadingAnchor, bottom: topicSelectionView1.bottomAnchor, trailing: topicSelectionView1.trailingAnchor)
+    
+        topicLabel2.anchor(top: topicSelectionView2.topAnchor, leading: topicSelectionView2.leadingAnchor, bottom: topicSelectionView2.bottomAnchor, trailing: topicSelectionView2.trailingAnchor)
     }
     
     /// This function takes a custom color name and the uses the Struct in the helper Group
