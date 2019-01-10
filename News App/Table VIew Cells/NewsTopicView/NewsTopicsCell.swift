@@ -40,15 +40,23 @@ class NewsTopicsCell: UITableViewCell {
         topicSelectionView2.backgroundColor = getColor(colorName: "lightBlue")
     }
     
-    func setSelectionViewNames(topicName: [String]) {
-        // Add the two label created programattically to the two views.
+    /// This function is used to set the text on the labes that will display the news
+    /// topic names.
+    ///
+    /// - Parameters:
+    ///   - topicName1: A String that indicated a news topic name.
+    ///   - topicName2: A String that indicates a news topic names.
+    func setSelectionViewNames(topicName1: String, topicName2: String) {
+        // Add the two label created programmatically to the two views.
         topicSelectionView1.addSubview(topicLabel1)
         topicSelectionView2.addSubview(topicLabel2)
         setAutoLayoutOnLabels() // set auto layout on these labels.
-        topicLabel1.text = "Hey"
-        topicLabel2.text = "Hey"
+        // Set the topic names.
+        topicLabel1.text = topicName1
+        topicLabel2.text = topicName2
     }
     
+    /// This function is used to set constraints on the labels created programmatically.
     func setAutoLayoutOnLabels() {
         topicLabel1.anchor(top: topicSelectionView1.topAnchor, leading: topicSelectionView1.leadingAnchor, bottom: topicSelectionView1.bottomAnchor, trailing: topicSelectionView1.trailingAnchor)
     
@@ -64,6 +72,5 @@ class NewsTopicsCell: UITableViewCell {
         let hexcode = helperVar.colors[colorName]
         return UIColor.init(netHex: hexcode ?? 0x000000)
     }
-    
     
 }

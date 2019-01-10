@@ -2,6 +2,9 @@
 //  NewsTopicController.swift
 //  News App
 //
+//  This file setsup the view that will display
+//  the news topic names on the table view cell.
+//
 //  Created by Naveen Gaur on 8/1/19.
 //  Copyright © 2019 Naveen Gaur. All rights reserved.
 //
@@ -51,7 +54,7 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
             fatalError("Could not dequeue cell with identifier: cell")
         }
         cell.setupSelectionViews()
-        cell.setSelectionViewNames(topicName: newsTopics)
+        cell.setSelectionViewNames(topicName1: newsTopics[indexPath.row], topicName2: newsTopics[indexPath.row+1])
         return cell
     }
     
