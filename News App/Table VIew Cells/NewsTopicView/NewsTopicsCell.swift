@@ -17,6 +17,8 @@ class NewsTopicsCell: UITableViewCell {
     @IBOutlet weak var topicSelectionView1: UIView!
     @IBOutlet weak var topicSelectionView2: UIView!
     
+ let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_gestureRecognizer:)))
+    
     // MARK: - Here are the two labels that will display the news topic name.
     var topicLabel1: UILabel =  {
         let label = UILabel()
@@ -38,6 +40,20 @@ class NewsTopicsCell: UITableViewCell {
     func setupSelectionViews() {
         topicSelectionView1.backgroundColor = getColor(colorName: "customRed")
         topicSelectionView2.backgroundColor = getColor(colorName: "lightBlue")
+        //addGestureRecognizerToViews()
+    }
+    
+    // MARK: - This function is used to add gesture recognizer on the views that holds the news topic.
+    func addGestureRecognizer(_ges: UIGestureRecognizer) {
+        // Tap Gesture for the second view. You cannot use one gesture for two views.
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_gestureRecognizer:)))
+        // Add the gesture for the first label.
+        topicLabel1.addGestureRecognizer(_ges)
+        topicLabel1.isUserInteractionEnabled = true
+        
+        // add the gesture to the second label.
+        topicLabel2.addGestureRecognizer(tapgesture)
+        topicLabel2.isUserInteractionEnabled = true
     }
     
     /// This function is used to set the text on the labes that will display the news
@@ -71,6 +87,15 @@ class NewsTopicsCell: UITableViewCell {
     func getColor(colorName: String) -> UIColor {
         let hexcode = helperVar.colors[colorName]
         return UIColor.init(netHex: hexcode ?? 0x000000)
+    }
+
+    // MARK: - This function handles what happens after the view is tapped.
+    /// When the user taps on the view it will take them to a new view where they will be able to
+    /// see news particular to the topic they chose.
+    @objc
+    func handleTap(_gestureRecognizer: UIGestureRecognizer) {
+        // Handle what happens after the view is tapped.
+        print("YOOP")
     }
     
 }

@@ -17,6 +17,7 @@ class NewsTopicController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     private var newsTopics = [String]()
+    var tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,11 @@ class NewsTopicController: UIViewController {
         setupNewsTopicArray()
         getParticularNews(newsTopic: "premier league")
         configureTableView()
+        view.isUserInteractionEnabled = true
+        tableView.isUserInteractionEnabled = true
     }
     
+    /// This function is used to configure some properties of the table view.
     private func configureTableView() {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
@@ -46,6 +50,11 @@ class NewsTopicController: UIViewController {
     }
     
     // MARK: - This function is used to connect to the api and get the data from it.
+    /// This function is used to get data from the api about a particular news topic that a user
+    /// might select.
+    ///
+    /// - Parameter newsTopic: Takes a string as a parameter that indicates what news topic the
+    ///             user might be intrested in.
     func getParticularNews(newsTopic: String) {
         let newsService = MoyaProvider<specificNewsService>()
         newsService.request(.getNews(query: newsTopic), completion: { (result) in
@@ -64,6 +73,14 @@ class NewsTopicController: UIViewController {
         })
     }
     
+    /// This Function is triggered when the user taps on a cell that displayed the news topic to them.
+    ///
+    /// - Parameter _ges: Takes in a UIGestureRecognizer as a param.
+    @objc
+    func handleTap(gestureRecognizer: UIGestureRecognizer) {
+        print("YOOP")
+    }
+    
 }
 
 // MARK: - Setup for table view here.
@@ -74,6 +91,7 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
         return newsTopics.count/2
     }
     
+    //  MARK:- The Tap gesture is configured here.
     /// This function is used to setup the table view cells.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NewsTopicsCell else {
@@ -81,6 +99,9 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
         }
         cell.setupSelectionViews()
         cell.setSelectionViewNames(topicName1: newsTopics[indexPath.row], topicName2: newsTopics[indexPath.row+1])
+        // Setup the tap gesture here.
+        tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(handleTap(gestureRecognizer:)))
+        cell.addGestureRecognizer(_ges: tapGesture)
         return cell
     }
     

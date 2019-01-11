@@ -44,6 +44,7 @@ class HeadlinesCell: UITableViewCell {
         }
     }
     
+    //  MARK: - Load Image from URL.
     /// Loads image in the image view for each cell.The image when loaded is cached.
     /// This is because UITableView reuses cells. Loading them without caching will cause the
     /// async requests to return at different time and mess up the order.
@@ -55,10 +56,11 @@ class HeadlinesCell: UITableViewCell {
     func loadImage(news: News,indexPath: IndexPath) {
         newsImage.contentMode = .scaleAspectFill;
         newsImage.layer.masksToBounds = true; // need this so that the image doesn't overflows.
-         //to check if the optional value is nil or not.
-        if news.articles[indexPath.row].urlToImage != nil {
-           newsImage.load(url: URL(string: news.articles[indexPath.row].urlToImage!)!)
+        // Unwrap the optional
+        if let imageUrl = news.articles[indexPath.row].urlToImage {
+            newsImage.downloaded(from: imageUrl)
         }
+        // Set rounded corners on the image view.
         newsImage.layer.cornerRadius = 5
     }
     

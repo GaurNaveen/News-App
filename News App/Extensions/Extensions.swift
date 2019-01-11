@@ -85,28 +85,41 @@ extension UIColor {
 }
 
 extension UIImageView {
-    func load(url: URL) {
-        // initally set the image to nil.
-        self.image = nil
-        
+    
+    /// This function handles the networking stuff to download the image from the given url.
+    ///
+    /// - Parameter url: Takes in a url from which the image can be retrieve.
+    func downloaded(from url: URL) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         // check if the image is already in the cache.
         if let imageToCache = imageCache.object(forKey: url as NSURL) {
             self.image = imageToCache
             return
         }
-        // Download the image asynchronously if the image is not present in the cache.
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        // cache the image
-                        let imageToCache = image
-                        imageCache.setObject(imageToCache, forKey: url as NSURL)
-                        self?.image = image
-                    }
-                }
+        
+        // If the image is not in cache,then downlaod it from the url.
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                // Cache the image.
+                let imageToCache = image
+                imageCache.setObject(imageToCache, forKey: url as NSURL)
+                self.image = image
             }
-        }
+            }.resume()
+    }
+    
+    /// This function is called from the CELL files to get an image from the
+    /// URL.It then itself calls another function that handles the networking stuff.
+    ///
+    /// - Parameter link: Takes in a string url.
+    func downloaded(from link: String) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url)
     }
     
 }
