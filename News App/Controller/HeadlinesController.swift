@@ -11,6 +11,7 @@
 
 import UIKit
 import Moya
+import SVProgressHUD
 
 class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -30,6 +31,8 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show(withStatus: "Loading News")
         getHeadlines() // call to the function that gets the headlines from the api.
     }
     
@@ -107,6 +110,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                     // Parse JSON Response
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
                     self.tableView.reloadData() // Reload the table view when the data is loaded.
+                    SVProgressHUD.dismiss()     // After the news is loaded ,dismiss the progress bar.
                     self.tableView.isHidden = false
                     // This is to stop the refreshing when the user pulls to refresh.
                     if self.refresher.isRefreshing {
