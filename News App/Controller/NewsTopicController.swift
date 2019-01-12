@@ -18,6 +18,7 @@ class NewsTopicController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var newsTopics = [String]()
     var tapGesture = UITapGestureRecognizer()
+    private var indexCount: Int = 0 // This control the index for the views inside the table view cells.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class NewsTopicController: UIViewController {
     // MARK: - Here are the News Topic names.
     /// Fills the array with the hardcoded news topic.
     private func setupNewsTopicArray() {
-        newsTopics = ["Fashion","NBA","NFL","Soccer","Music"]
+        newsTopics = ["Fashion","NBA","NFL","Soccer","Music","Premier League","Politics"]
     }
     
     // MARK: - This function is used to connect to the api and get the data from it.
@@ -97,8 +98,11 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NewsTopicsCell else {
             fatalError("Could not dequeue cell with identifier: cell")
         }
+        
         cell.setupSelectionViews()
-        cell.setSelectionViewNames(topicName1: newsTopics[indexPath.row], topicName2: newsTopics[indexPath.row+1])
+        cell.setSelectionViewNames(topicName1: newsTopics[indexCount], topicName2: newsTopics[indexCount+1])
+        indexCount+=2 // Increment the index count after each cell has been setup.
+        
         // Setup the tap gesture here.
         tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(handleTap(gestureRecognizer:)))
         cell.addGestureRecognizer(_ges: tapGesture)

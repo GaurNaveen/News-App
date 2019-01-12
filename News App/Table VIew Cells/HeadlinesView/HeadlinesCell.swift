@@ -26,22 +26,21 @@ class HeadlinesCell: UITableViewCell {
     ///           contains info about the news.
     ///   - indexPath: This is the index path of each table view cell.
     func displayNews(news: News?,indexPath: IndexPath) {
-        removeOptional(news: news, indexPath: indexPath)
+        configureImageView()
         loadImage(news: news!, indexPath: indexPath)
         diplayNewsTitle(news: news!, indexPath: indexPath)
         newsView.dropShadow()
     }
     
-    /// This function is used to remove the optional from the news variable.
-    ///
-    /// - Parameters:
-    ///   - news: It is the news object that is loaded from the api. It
-    ///           contains info about the news.
-    ///   - indexPath: This is the index path of each table view cell.
-    func removeOptional(news : News?,indexPath: IndexPath) {
-        if let value = news {
-            print(value)
-        }
+    /// This is used to setup the image view. It sets the content mode for the
+    /// image view and also rounds of the corners at the top.
+    func configureImageView() {
+        newsImage.contentMode = .scaleAspectFill;
+        newsImage.layer.masksToBounds = true; // need this so that the image doesn't overflows.
+        // Set rounded corners on the image view.
+        newsImage.layer.cornerRadius = 5
+        // This line helps to round the top 2 corners of the image view.
+        newsImage.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
     
     //  MARK: - Load Image from URL.
@@ -54,14 +53,10 @@ class HeadlinesCell: UITableViewCell {
     ///           contains info about the news.
     ///   - indexPath: This is the index path of each table view cell.
     func loadImage(news: News,indexPath: IndexPath) {
-        newsImage.contentMode = .scaleAspectFill;
-        newsImage.layer.masksToBounds = true; // need this so that the image doesn't overflows.
         // Unwrap the optional
         if let imageUrl = news.articles[indexPath.row].urlToImage {
             newsImage.downloaded(from: imageUrl)
         }
-        // Set rounded corners on the image view.
-        newsImage.layer.cornerRadius = 5
     }
     
     /// Used to display the title of the news below the image.
