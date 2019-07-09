@@ -54,16 +54,42 @@
         <!--Trending-->
         <scene sceneID="PTu-j5-8aJ">
             <objects>
-                <viewController id="gKa-aa-sce" sceneMemberID="viewController">
+                <viewController id="gKa-aa-sce" customClass="SearchViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="olR-Ky-3vH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cCr-Q4-g32">
+                                <rect key="frame" x="0.0" y="88" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Nwd-BD-sGw"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cCr-Q4-g32" firstAttribute="top" secondItem="efx-sh-yrP" secondAttribute="top" id="7Cw-mc-7aV"/>
+                            <constraint firstItem="cCr-Q4-g32" firstAttribute="leading" secondItem="efx-sh-yrP" secondAttribute="leading" id="D8Q-gk-Ubn"/>
+                            <constraint firstItem="cCr-Q4-g32" firstAttribute="trailing" secondItem="efx-sh-yrP" secondAttribute="trailing" id="lSX-ZV-Dts"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="efx-sh-yrP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trending" id="sm0-Vu-Euw"/>
+                    <connections>
+                        <outlet property="searchBar" destination="cCr-Q4-g32" id="8uF-HU-k3v"/>
+                        <outlet property="searchDisplayController" destination="kGU-9U-rTa" id="avp-DR-87u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIL-CL-q4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="kGU-9U-rTa">
+                    <connections>
+                        <outlet property="delegate" destination="gKa-aa-sce" id="ErX-N4-crD"/>
+                        <outlet property="searchContentsController" destination="gKa-aa-sce" id="z5Z-xG-W1Y"/>
+                        <outlet property="searchResultsDataSource" destination="gKa-aa-sce" id="9uX-UH-0lM"/>
+                        <outlet property="searchResultsDelegate" destination="gKa-aa-sce" id="3fr-Vl-Pep"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1791.2" y="187.68472906403943"/>
         </scene>
@@ -76,13 +102,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCg-2A-cAA">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="93"/>
                                 <items>
                                     <navigationItem title="Title" id="KUq-Si-9t9"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iIQ-N5-4DC">
-                                <rect key="frame" x="0.0" y="102" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="151" width="375" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="141" id="LDO-qd-jJN" customClass="NewsTopicsCell" customModule="News_App" customModuleProvider="target">
@@ -93,28 +119,37 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01y-Al-TrQ">
-                                                    <rect key="frame" x="15" y="6" width="144" height="128"/>
+                                                    <rect key="frame" x="15" y="6" width="112" height="102"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2i-aj-S6z">
-                                                    <rect key="frame" x="206" y="6" width="144" height="128"/>
+                                                    <rect key="frame" x="135" y="6" width="112" height="102"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8C4-oB-gbr">
+                                                    <rect key="frame" x="256" y="6" width="112" height="102"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="01y-Al-TrQ" secondAttribute="bottom" constant="6.6699999999999999" id="0me-x7-8tg"/>
+                                                <constraint firstAttribute="bottom" secondItem="01y-Al-TrQ" secondAttribute="bottom" constant="32.666666666666657" id="0me-x7-8tg"/>
                                                 <constraint firstItem="01y-Al-TrQ" firstAttribute="leading" secondItem="hGa-v2-YtS" secondAttribute="leading" constant="15" id="6U5-uV-m22"/>
-                                                <constraint firstItem="v2i-aj-S6z" firstAttribute="leading" secondItem="hGa-v2-YtS" secondAttribute="leading" constant="206" id="DeB-y7-ucD"/>
-                                                <constraint firstAttribute="trailing" secondItem="01y-Al-TrQ" secondAttribute="trailing" constant="216" id="Gku-35-mVq"/>
+                                                <constraint firstItem="v2i-aj-S6z" firstAttribute="leading" secondItem="hGa-v2-YtS" secondAttribute="leading" constant="135" id="DeB-y7-ucD"/>
+                                                <constraint firstAttribute="trailing" secondItem="01y-Al-TrQ" secondAttribute="trailing" constant="248" id="Gku-35-mVq"/>
                                                 <constraint firstItem="01y-Al-TrQ" firstAttribute="top" secondItem="hGa-v2-YtS" secondAttribute="top" constant="6" id="KPY-NF-OMb"/>
-                                                <constraint firstAttribute="bottom" secondItem="v2i-aj-S6z" secondAttribute="bottom" constant="6.6699999999999999" id="bZI-t2-9jm"/>
+                                                <constraint firstItem="8C4-oB-gbr" firstAttribute="top" secondItem="hGa-v2-YtS" secondAttribute="top" constant="6" id="YMQ-ac-Ghx"/>
+                                                <constraint firstAttribute="bottom" secondItem="8C4-oB-gbr" secondAttribute="bottom" constant="32.670000000000002" id="bEk-hS-hYZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="v2i-aj-S6z" secondAttribute="bottom" constant="32.666666666666657" id="bZI-t2-9jm"/>
                                                 <constraint firstItem="v2i-aj-S6z" firstAttribute="top" secondItem="hGa-v2-YtS" secondAttribute="top" constant="6" id="hYO-Zc-ZY2"/>
-                                                <constraint firstAttribute="trailing" secondItem="v2i-aj-S6z" secondAttribute="trailing" constant="25" id="sGf-tK-ESw"/>
+                                                <constraint firstAttribute="trailing" secondItem="8C4-oB-gbr" secondAttribute="trailing" constant="7" id="krX-MK-dCw"/>
+                                                <constraint firstAttribute="trailing" secondItem="v2i-aj-S6z" secondAttribute="trailing" constant="128" id="sGf-tK-ESw"/>
+                                                <constraint firstItem="8C4-oB-gbr" firstAttribute="leading" secondItem="v2i-aj-S6z" secondAttribute="trailing" constant="9" id="xl9-US-UEZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="topicSelectionView1" destination="01y-Al-TrQ" id="LEd-mc-j5r"/>
                                             <outlet property="topicSelectionView2" destination="v2i-aj-S6z" id="57O-bk-Q5S"/>
+                                            <outlet property="topicSelectionView3" destination="8C4-oB-gbr" id="Zaa-9H-Fd6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -149,10 +184,25 @@
             </objects>
             <point key="canvasLocation" x="2692" y="172.90640394088672"/>
         </scene>
-        <!--Headlines-->
+        <!--View Controller-->
+        <scene sceneID="w6T-R5-iBl">
+            <objects>
+                <viewController id="FuV-wa-eWp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gkT-IH-Nnq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Mgr-oJ-Vrx"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBp-q5-myD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3556" y="172"/>
+        </scene>
+        <!--Headlines View-->
         <scene sceneID="wuA-He-R4C">
             <objects>
-                <viewController id="m9l-Lw-iw5" customClass="HeadlinesController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Headlines View" id="m9l-Lw-iw5" customClass="HeadlinesController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n9H-Ve-pwu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +323,6 @@
                     <connections>
                         <segue destination="9Gq-2r-e2v" kind="relationship" relationship="viewControllers" id="TE6-k2-XjD"/>
                         <segue destination="ing-Y1-0i0" kind="relationship" relationship="viewControllers" id="Vco-kE-U9Y"/>
-                        <segue destination="gL7-Ms-Zgt" kind="relationship" relationship="viewControllers" id="TCR-8M-zQu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOg-Op-VGg" userLabel="First Responder" sceneMemberID="firstResponder"/>

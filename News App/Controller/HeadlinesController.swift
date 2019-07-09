@@ -109,14 +109,15 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if response.statusCode == 200 {
                     // Parse JSON Response
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
-                    self.tableView.reloadData() // Reload the table view when the data is loaded.
-                    SVProgressHUD.dismiss()     // After the news is loaded ,dismiss the progress bar.
+                    self.tableView.reloadData()
+                    // Reload the table view when the data is loaded.
+                    SVProgressHUD.dismiss()
+                    // After the news is loaded ,dismiss the progress bar.
                     self.tableView.isHidden = false
                     // This is to stop the refreshing when the user pulls to refresh.
                     if self.refresher.isRefreshing {
                         self.refresher.endRefreshing()
                     }
-                    
                 } else if response.statusCode == 500 {
                     // Display an Alert Box Here
                     self.presentAlert(message: "There was an error connecting to the server")

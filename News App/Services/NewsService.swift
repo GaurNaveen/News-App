@@ -12,9 +12,11 @@ import Moya
 enum NewsService {
     case getNews(country: String,category: String)
     case wsj(domain: String)
+    case region(country: String)
 }
 
 extension NewsService: TargetType {
+    
     var baseURL: URL {
         let url = URL(string: "https://newsapi.org")
         return url!
@@ -26,6 +28,9 @@ extension NewsService: TargetType {
             return "/v2/top-headlines"
         case .wsj:
             return"/v2/everything"
+        case .region:
+            return "/v2/everything"
+            
         }
     }
     
@@ -34,6 +39,9 @@ extension NewsService: TargetType {
         case .getNews:
             return .get
         case .wsj:
+            return .get
+            
+        case .region:
             return .get
         }
     }
@@ -48,6 +56,8 @@ extension NewsService: TargetType {
             return .requestParameters(parameters: ["country":country,"category":category], encoding: URLEncoding.default)
         case .wsj(let domain):
             return .requestParameters(parameters: ["domains":domain], encoding: URLEncoding.default)
+        case .region(let country):
+            return .requestParameters(parameters: ["country":country], encoding: URLEncoding.default)
         }
     }
     

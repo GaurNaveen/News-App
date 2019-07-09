@@ -11,20 +11,22 @@
 //
 
 import UIKit
-
 class NewsTopicsCell: UITableViewCell {
 
     @IBOutlet weak var topicSelectionView1: UIView!
     @IBOutlet weak var topicSelectionView2: UIView!
     
- let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_gestureRecognizer:)))
+    @IBOutlet weak var topicSelectionView3: UIView!
     
-    // MARK: - Here are the two labels that will display the news topic name.
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_gestureRecognizer:)))
+    
+    // MARK: - Here are the three labels that will display the news topic name.
     var topicLabel1: UILabel =  {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont(name: "American Typewriter", size: 25)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true // Automatically adjusts the size of text with respect to label's width
         return label
     }()
     
@@ -33,6 +35,16 @@ class NewsTopicsCell: UITableViewCell {
         label.textColor = .white
         label.font = UIFont(name: "American Typewriter", size: 25)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true // Automatically adjusts the size of text with respect to label's width
+        return label
+    }()
+    
+    var topicLabel3: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "American Typewriter", size: 25)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true // Automatically adjusts the size of text with respect to label's width
         return label
     }()
     
@@ -40,6 +52,7 @@ class NewsTopicsCell: UITableViewCell {
     func setupSelectionViews() {
         topicSelectionView1.backgroundColor = getColor(colorName: "customRed")
         topicSelectionView2.backgroundColor = getColor(colorName: "lightBlue")
+        topicSelectionView3.backgroundColor = getColor(colorName: "darkishYellow")
         //addGestureRecognizerToViews()
     }
     
@@ -66,10 +79,12 @@ class NewsTopicsCell: UITableViewCell {
         // Add the two label created programmatically to the two views.
         topicSelectionView1.addSubview(topicLabel1)
         topicSelectionView2.addSubview(topicLabel2)
+        topicSelectionView3.addSubview(topicLabel3)
         setAutoLayoutOnLabels() // set auto layout on these labels.
         // Set the topic names.
         topicLabel1.text = topicName1
         topicLabel2.text = topicName2
+        topicLabel3.text = topicName1
     }
     
     /// This function is used to set constraints on the labels created programmatically.
@@ -77,6 +92,8 @@ class NewsTopicsCell: UITableViewCell {
         topicLabel1.anchor(top: topicSelectionView1.topAnchor, leading: topicSelectionView1.leadingAnchor, bottom: topicSelectionView1.bottomAnchor, trailing: topicSelectionView1.trailingAnchor)
     
         topicLabel2.anchor(top: topicSelectionView2.topAnchor, leading: topicSelectionView2.leadingAnchor, bottom: topicSelectionView2.bottomAnchor, trailing: topicSelectionView2.trailingAnchor)
+
+        topicLabel3.anchor(top: topicSelectionView3.topAnchor, leading: topicSelectionView3.leadingAnchor, bottom: topicSelectionView3.bottomAnchor, trailing: topicSelectionView3.trailingAnchor)
     }
     
     /// This function takes a custom color name and the uses the Struct in the helper Group
@@ -94,8 +111,17 @@ class NewsTopicsCell: UITableViewCell {
     /// see news particular to the topic they chose.
     @objc
     func handleTap(_gestureRecognizer: UIGestureRecognizer) {
-        // Handle what happens after the view is tapped.
-        print("YOOP")
+        // Handle what happens after the view is tapped.Dim the background and then display a check
+        // mark on the top view.
+        print(globalIndex)
     }
     
+    @objc
+    func handleTap3(_gestureRecognizer: UIGestureRecognizer) {
+        let coverLayer = CALayer()
+        coverLayer.frame = topicSelectionView1.bounds
+        coverLayer.backgroundColor = UIColor.black.cgColor
+        coverLayer.opacity = 0.5
+        topicSelectionView3.layer.addSublayer(coverLayer)
+    }
 }

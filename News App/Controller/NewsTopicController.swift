@@ -11,7 +11,7 @@
 
 import UIKit
 import Moya
-
+public var globalIndex = 0
 class NewsTopicController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -47,7 +47,7 @@ class NewsTopicController: UIViewController {
     // MARK: - Here are the News Topic names.
     /// Fills the array with the hardcoded news topic.
     private func setupNewsTopicArray() {
-        newsTopics = ["Fashion","NBA","NFL","Soccer","Music","Premier League","Politics"]
+        newsTopics = ["Fashion","NBA","NFL","Soccer","Music","Premier League","Politics","Technology","Apple","Microsoft"]
     }
     
     // MARK: - This function is used to connect to the api and get the data from it.
@@ -79,9 +79,10 @@ class NewsTopicController: UIViewController {
     /// - Parameter _ges: Takes in a UIGestureRecognizer as a param.
     @objc
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
-        print("YOOP")
+        if let label = gestureRecognizer.view as? UILabel {
+            print(label.text)
+        }
     }
-    
 }
 
 // MARK: - Setup for table view here.
@@ -120,4 +121,7 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("n--")
+    }
 }
