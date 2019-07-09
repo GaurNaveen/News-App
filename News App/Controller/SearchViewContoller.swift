@@ -9,19 +9,26 @@
 import UIKit
 import Moya
 import SVProgressHUD
-class SearchViewController: UIViewController,UISearchBarDelegate {
+class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate {
+    
+    
     private var headlines: News?=nil
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         searchBar.delegate = self
         // Get user location to display below the search bar.
-        let currentUserLocation = NSLocale.current
-        print(currentUserLocation)
+        //let currentUserLocation = NSLocale.current
+        
+        // Setup Table view
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .black
         
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
@@ -36,6 +43,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text ?? "")
     }
+    
     
     func fetchNewsForRegion(countryCode: String) {
         let newsProvider = MoyaProvider<NewsService>()
@@ -83,4 +91,25 @@ class SearchViewController: UIViewController,UISearchBarDelegate {
         alertController.addAction(okAction)
         self.present(alertController,animated: true,completion: nil)
     }
+    
+    
+    // Total number of rows for the news retrieved.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return headlines?.articles.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
+            fatalError("Could not dequeue cell with identifier: cell")
+        }
+        return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // This is done for dynamic height of table view rows.
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 296
+    }
 }
+

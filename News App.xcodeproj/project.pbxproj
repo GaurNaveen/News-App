@@ -19,6 +19,7 @@
 		B63BB68221E47D81002A359E /* NewsTopicsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63BB68121E47D81002A359E /* NewsTopicsCell.swift */; };
 		B63BB68421E75712002A359E /* FeatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63BB68321E75712002A359E /* FeatureService.swift */; };
 		B63FD50422D4845C002B6C71 /* SearchViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */; };
+		B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54322D4CC63002B6C71 /* SearchCell.swift */; };
 		B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675521CE241800AAF04C /* AppDelegate.swift */; };
 		B6EF675821CE241800AAF04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675721CE241800AAF04C /* ViewController.swift */; };
 		B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675921CE241800AAF04C /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		B63BB68121E47D81002A359E /* NewsTopicsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTopicsCell.swift; sourceTree = "<group>"; };
 		B63BB68321E75712002A359E /* FeatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureService.swift; sourceTree = "<group>"; };
 		B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewContoller.swift; sourceTree = "<group>"; };
+		B63FD54322D4CC63002B6C71 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		B6EF675221CE241800AAF04C /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EF675521CE241800AAF04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EF675721CE241800AAF04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		B637200C21DA50F6007BE810 /* Table VIew Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B63FD54222D4CC41002B6C71 /* SearchView */,
 				B637200D21DA5111007BE810 /* HeadlinesView */,
 				B63BB68021E47D43002A359E /* NewsTopicView */,
 			);
@@ -161,6 +164,14 @@
 				B63BB68121E47D81002A359E /* NewsTopicsCell.swift */,
 			);
 			path = NewsTopicView;
+			sourceTree = "<group>";
+		};
+		B63FD54222D4CC41002B6C71 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				B63FD54322D4CC63002B6C71 /* SearchCell.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		B6EF674921CE241800AAF04C = {
@@ -283,6 +294,7 @@
 				B6EF674F21CE241800AAF04C /* Frameworks */,
 				B6EF675021CE241800AAF04C /* Resources */,
 				AD595D6D0E63D56DDE834EB0 /* [CP] Embed Pods Frameworks */,
+				B63FD54122D4C5BE002B6C71 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -474,6 +486,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-News App/Pods-News App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B63FD54122D4C5BE002B6C71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 		C735DE828CB694B75BF5C178 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +547,7 @@
 				B637200F21DA51AF007BE810 /* HeadlinesCell.swift in Sources */,
 				B63BB67F21E47AB0002A359E /* GlobalVariables.swift in Sources */,
 				B637200B21DA4EA0007BE810 /* HeadlinesController.swift in Sources */,
+				B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */,
 				B6EF678B21CFDABF00AAF04C /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
