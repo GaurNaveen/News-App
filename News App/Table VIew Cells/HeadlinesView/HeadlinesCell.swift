@@ -66,6 +66,7 @@ class HeadlinesCell: UITableViewCell {
     ///           contains info about the news.
     ///   - indexPath: This is the index path of each table view cell.
     func diplayNewsTitle(news: News,indexPath: IndexPath) {
+
         newsDescription.text = news.articles[indexPath.row].title
     }
     

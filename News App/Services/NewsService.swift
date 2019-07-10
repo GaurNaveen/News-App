@@ -29,7 +29,7 @@ extension NewsService: TargetType {
         case .wsj:
             return"/v2/everything"
         case .region:
-            return "/v2/everything"
+            return "/v2/top-headlines"
             
         }
     }

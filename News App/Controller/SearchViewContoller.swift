@@ -12,7 +12,7 @@ import SVProgressHUD
 class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate {
     
     
-    private var headlines: News?=nil
+    var headlines:News? = nil
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!    
     override func viewDidLoad() {
@@ -26,6 +26,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .black
+        fetchNewsForRegion(countryCode: "us")
         
     }
     
@@ -47,16 +48,20 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     
     func fetchNewsForRegion(countryCode: String) {
         let newsProvider = MoyaProvider<NewsService>()
-        
         newsProvider.request(.region(country: countryCode)) { (result) in
             switch result {
             case .success(let response):
                 if response.statusCode == 200 {
+                    print("hi")
                     // Parse JSON Response
-                    self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
+                    self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
                     //TODO: Reload the table view data.
-                    // self.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
+                else {
+                    print(response.statusCode)
+                }
+               
             case .failure(_):
                 print("BOOM Here is the error")
             }
@@ -92,7 +97,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         self.present(alertController,animated: true,completion: nil)
     }
     
-    
     // Total number of rows for the news retrieved.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headlines?.articles.count ?? 0
@@ -103,13 +107,15 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
             fatalError("Could not dequeue cell with identifier: cell")
         }
+        
+        cell.diplayNews(news: headlines, indexPath: indexPath)
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // This is done for dynamic height of table view rows.
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 296
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        // This is done for dynamic height of table view rows.
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 296
+//    }
 }
 
