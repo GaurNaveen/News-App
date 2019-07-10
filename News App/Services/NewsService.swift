@@ -13,6 +13,7 @@ enum NewsService {
     case getNews(country: String,category: String)
     case wsj(domain: String)
     case region(country: String)
+    case search(query: String)
 }
 
 extension NewsService: TargetType {
@@ -30,7 +31,8 @@ extension NewsService: TargetType {
             return"/v2/everything"
         case .region:
             return "/v2/top-headlines"
-            
+        case .search:
+            return "/v2/everything"
         }
     }
     
@@ -42,6 +44,8 @@ extension NewsService: TargetType {
             return .get
             
         case .region:
+            return .get
+        case .search:
             return .get
         }
     }
@@ -58,6 +62,8 @@ extension NewsService: TargetType {
             return .requestParameters(parameters: ["domains":domain], encoding: URLEncoding.default)
         case .region(let country):
             return .requestParameters(parameters: ["country":country], encoding: URLEncoding.default)
+        case .search(let query):
+            return .requestParameters(parameters: ["q":query,"sortBy":"popularity"], encoding: URLEncoding.default)
         }
     }
     

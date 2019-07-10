@@ -15,7 +15,6 @@ class NewsTopicsCell: UITableViewCell {
 
     @IBOutlet weak var topicSelectionView1: UIView!
     @IBOutlet weak var topicSelectionView2: UIView!
-    
     @IBOutlet weak var topicSelectionView3: UIView!
     
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_gestureRecognizer:)))
@@ -86,6 +85,7 @@ class NewsTopicsCell: UITableViewCell {
         topicLabel2.text = topicName2
         topicLabel3.text = topicName1
     }
+    
     
     /// This function is used to set constraints on the labels created programmatically.
     func setAutoLayoutOnLabels() {

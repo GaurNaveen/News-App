@@ -66,12 +66,14 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         return cell
     }
     
+    
     /// When the user selects a cell , the app takes the user to a new view where the
     /// user can view the article in it's full capacity.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "headlinesTodashboard", sender: self)
     }
+    
     
     // MARK: - Provides animation on the table view cells.
     /// This function is called fraction of time before displaying the cells.It is being used to
@@ -132,6 +134,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
+    
     
     /// This is use to present an alert to the user indicating something went wrong while
     /// loading the news from the api.

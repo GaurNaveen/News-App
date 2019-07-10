@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import SVProgressHUD
+
 class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate {
     private var selectedIndex = 0
     var headlines:News? = nil
@@ -34,15 +35,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         print(searchText)
     }
     
-    /// This function excutes when the user is done with typing the
-    /// search query. This funtion will pass the searched text to
-    /// fetchNews(), which will retrieve the news for the searched
-    /// text.
-    ///
-    /// - Parameter searchBar: default
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text ?? "")
-    }
     
     /// This function is used to retrieve news from the API for a particular country.
     /// By default it is set to "US"
@@ -54,7 +46,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
             switch result {
             case .success(let response):
                 if response.statusCode == 200 {
-                    print("hi")
                     // Parse JSON Response
                     self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
                     //TODO: Reload the table view data.
@@ -70,18 +61,11 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         }
     }
     
-    /// This function gets the news for the searched text.
-    ///
-    /// - Parameter searchQuery: Country Code of the user.It is set to AUS by
-    ///                           default.
-    func fetchSearchNews(searchQuery:String){
-        
-    }
-    
+   
     /// This function checks for erroe status codes and provides
     /// appropiate description.
     ///
-    /// - Parameter response: <#response description#>
+    /// - Parameter response: Response received from the API server.
     func networkErrorCheck(response:Response) {
         if response.statusCode == 429 {
             // Present the error for the below status code
@@ -116,8 +100,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     }
 
     /// This function is used to setup the table view cell.
-    /// It makes a call to the table view cell function that injects it with data
-    /// retrieved from the server.
+    /// It makes a call to the table view cell function that injects it with data  retrieved from the server.
     /// - Parameters:
     ///   - tableView: table view
     ///   - indexPath: index path
@@ -146,11 +129,53 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         
     }
     
+    
     //TODO: When the user selects the row , take them to the webview. The webview has
     // already been creates so reuse that.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "trendingTonewsView", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = (headlines?.articles[selectedIndex].url)!
+        }
+    }
+    
+    // -- Search Bar Text used to get the data from the server -- //
+    
+    /// This function excutes when the user is done with typing the search query. This funtion will pass the searched text to
+    ///  fetchNews(), which will retrieve the news for the searched  text.
+    /// - Parameter searchBar: default
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            SVProgressHUD.show()
+            fetchSearchNews(searchQuery: text)
+            }
+        }
+        
+    
+    func fetchSearchNews(searchQuery:String){
+        let newsProvider = MoyaProvider<NewsService>()
+        newsProvider.request(.search(query: searchQuery)) { (result) in
+            switch result {
+            case .success(let response):
+                if response.statusCode == 200 {
+                    self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
+                    self.tableView.reloadData()
+                     SVProgressHUD.dismiss()
+                } else {
+                    // TODO: Call the alert function and pass the error here.
+                    print(response.data)
+                }
+                
+            case .failure(_):
+                // TODO: Handle failure.
+                print("Error")
+            }
+        }
     }
     
 

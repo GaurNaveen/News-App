@@ -125,6 +125,7 @@
                         <outlet property="searchBar" destination="cCr-Q4-g32" id="8uF-HU-k3v"/>
                         <outlet property="searchDisplayController" destination="kGU-9U-rTa" id="avp-DR-87u"/>
                         <outlet property="tableView" destination="h6P-fL-rVW" id="haB-0i-tcg"/>
+                        <segue destination="xzT-8f-17z" kind="show" identifier="trendingTonewsView" id="mc6-uk-1bP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIL-CL-q4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,4 +425,7 @@
         <image name="ICON" width="20" height="20"/>
         <image name="NewsIcon" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mc6-uk-1bP"/>
+    </inferredMetricsTieBreakers>
 </document>
