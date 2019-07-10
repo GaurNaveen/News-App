@@ -102,6 +102,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="newsImage" destination="2hK-o7-Wbl" id="E5w-AZ-pig"/>
+                                            <outlet property="titleLabel" destination="7NG-6e-ool" id="SdW-8K-V87"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

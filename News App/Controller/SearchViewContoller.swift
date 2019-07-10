@@ -10,11 +10,12 @@ import UIKit
 import Moya
 import SVProgressHUD
 class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate {
-    
-    
+    private var selectedIndex = 0
     var headlines:News? = nil
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,9 +28,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.dataSource = self
         tableView.separatorColor = .black
         fetchNewsForRegion(countryCode: "us")
-        
     }
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
@@ -45,7 +44,10 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         print(searchBar.text ?? "")
     }
     
-    
+    /// This function is used to retrieve news from the API for a particular country.
+    /// By default it is set to "US"
+    ///
+    /// - Parameter countryCode: The country code , for which the news is required.
     func fetchNewsForRegion(countryCode: String) {
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.region(country: countryCode)) { (result) in
@@ -68,7 +70,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         }
     }
     
-    
     /// This function gets the news for the searched text.
     ///
     /// - Parameter searchQuery: Country Code of the user.It is set to AUS by
@@ -77,6 +78,10 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         
     }
     
+    /// This function checks for erroe status codes and provides
+    /// appropiate description.
+    ///
+    /// - Parameter response: <#response description#>
     func networkErrorCheck(response:Response) {
         if response.statusCode == 429 {
             // Present the error for the below status code
@@ -89,6 +94,9 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         }
     }
     
+    /// Presents a pop up box with a messag.
+    ///
+    /// - Parameter message: The message that needs to be displayed. Could be an error.
     func presentAlert(message:String){
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         // Add the 'OK button'
@@ -97,11 +105,23 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         self.present(alertController,animated: true,completion: nil)
     }
     
-    // Total number of rows for the news retrieved.
+    /// This function deciedes how many rows the table view should have.
+    ///
+    /// - Parameters:
+    ///   - tableView: table view
+    ///   - section: section
+    /// - Returns: an integer depecting the number of row required.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headlines?.articles.count ?? 0
     }
 
+    /// This function is used to setup the table view cell.
+    /// It makes a call to the table view cell function that injects it with data
+    /// retrieved from the server.
+    /// - Parameters:
+    ///   - tableView: table view
+    ///   - indexPath: index path
+    /// - Returns: table view cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
@@ -112,6 +132,28 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         return cell
     }
     
+    // MARK: - Provides animation on the table view cells.
+    /// This function is called fraction of time before displaying the cells.It is being used to
+    /// animate the table view cells.
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = animationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+        
+    }
+    
+    //TODO: When the user selects the row , take them to the webview. The webview has
+    // already been creates so reuse that.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "trendingTonewsView", sender: self)
+    }
+    
+
 //    override func viewWillAppear(_ animated: Bool) {
 //        // This is done for dynamic height of table view rows.
 //        tableView.rowHeight = UITableView.automaticDimension

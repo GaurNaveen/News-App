@@ -84,7 +84,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
             cell.layer.transform = CATransform3DIdentity
             cell.alpha = 1.0
         }
-        
     }
     
     /// Function sets up the url for the clicked news article, so the WKWebview

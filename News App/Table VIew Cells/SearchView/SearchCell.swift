@@ -10,6 +10,7 @@ import UIKit
 
 class SearchCell: UITableViewCell {
     @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var fetchedNews:News?
     var row:Int?
@@ -26,17 +27,22 @@ class SearchCell: UITableViewCell {
     }
     
     func diplayNews(news: News?,indexPath: IndexPath) {
-        print("hi")
         configureImageView()
         fetchedNews = news
         row = indexPath.row
         loadImage()
-        
+        configureTitleLabel()
     }
     
     func configureImageView() {
+        newsImage.contentMode = .scaleAspectFill
+        newsImage.layer.masksToBounds = true
         newsImage.layer.cornerRadius = 5
         newsImage.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+    }
+    
+    func configureTitleLabel(){
+        titleLabel.text = fetchedNews?.articles[row ?? 0].title
     }
     
     func loadImage(){
@@ -44,7 +50,6 @@ class SearchCell: UITableViewCell {
         if let imageurl = fetchedNews?.articles[row ?? 0].urlToImage {
             newsImage.downloaded(from: imageurl)
         }
-        print("Oho")
     }
     
 }
