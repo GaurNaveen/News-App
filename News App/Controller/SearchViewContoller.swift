@@ -21,6 +21,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         searchBar.delegate = self
+        searchBar.barTintColor = .black
         // Get user location to display below the search bar.
         //let currentUserLocation = NSLocale.current
         
@@ -88,6 +89,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         alertController.addAction(okAction)
         self.present(alertController,animated: true,completion: nil)
     }
+    
     
     /// This function deciedes how many rows the table view should have.
     ///
