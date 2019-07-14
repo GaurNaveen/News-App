@@ -22,8 +22,6 @@ class LoginViewController: UIViewController {
         setTextFieldDelegates()
     }
     
-    
-    
     /// Setting up the views here.
     let backgroundView: UIView = {
         let view = UIView()
@@ -55,13 +53,14 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = UIColor.init(netHex: 0x3b5998)
     }
     
-    /// Get Inputs from Text Fields
+    ///   Get Inputs from Text Fields
     func setTextFieldDelegates() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         // call the function to get the input
     }
     
+    // When the uer clicks the login button , get the input from the text fields and validate them.
     @IBAction func loginButtonClicked(_ sender: Any) {
         if((usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)!) {
             //TODO: Present Alert here
@@ -70,9 +69,6 @@ class LoginViewController: UIViewController {
             print(passwordTextField.text)
         }
     }
-    
-    
-    
 }
 
 ///Get the data from the text fields.
