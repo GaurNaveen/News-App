@@ -22,6 +22,9 @@
 		B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54322D4CC63002B6C71 /* SearchCell.swift */; };
 		B63FD54822D82A8E002B6C71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54722D82A8E002B6C71 /* LoginViewController.swift */; };
 		B63FD54A22D9FED6002B6C71 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54922D9FED6002B6C71 /* SignUpViewController.swift */; };
+		B63FD54C22DB1E34002B6C71 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54B22DB1E34002B6C71 /* ExploreViewController.swift */; };
+		B63FD55122DB23FA002B6C71 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD55022DB23FA002B6C71 /* ExploreView.swift */; };
+		B63FD55322DB2579002B6C71 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD55222DB2579002B6C71 /* CollectionViewCell.swift */; };
 		B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675521CE241800AAF04C /* AppDelegate.swift */; };
 		B6EF675821CE241800AAF04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675721CE241800AAF04C /* ViewController.swift */; };
 		B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675921CE241800AAF04C /* Main.storyboard */; };
@@ -74,6 +77,9 @@
 		B63FD54322D4CC63002B6C71 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		B63FD54722D82A8E002B6C71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B63FD54922D9FED6002B6C71 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B63FD54B22DB1E34002B6C71 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		B63FD55022DB23FA002B6C71 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		B63FD55222DB2579002B6C71 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		B6EF675221CE241800AAF04C /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EF675521CE241800AAF04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EF675721CE241800AAF04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 		B637200C21DA50F6007BE810 /* Table VIew Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B63FD54D22DB2300002B6C71 /* ExploreView */,
 				B63FD54222D4CC41002B6C71 /* SearchView */,
 				B637200D21DA5111007BE810 /* HeadlinesView */,
 				B63BB68021E47D43002A359E /* NewsTopicView */,
@@ -185,6 +192,15 @@
 				B63FD54922D9FED6002B6C71 /* SignUpViewController.swift */,
 			);
 			path = Login_SignUp;
+			sourceTree = "<group>";
+		};
+		B63FD54D22DB2300002B6C71 /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				B63FD55022DB23FA002B6C71 /* ExploreView.swift */,
+				B63FD55222DB2579002B6C71 /* CollectionViewCell.swift */,
+			);
+			path = ExploreView;
 			sourceTree = "<group>";
 		};
 		B6EF674921CE241800AAF04C = {
@@ -282,6 +298,7 @@
 				B637201221DE4A89007BE810 /* NewsViewController.swift */,
 				B63BB67B21E46FAA002A359E /* NewsTopicController.swift */,
 				B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */,
+				B63FD54B22DB1E34002B6C71 /* ExploreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -553,11 +570,14 @@
 				B63BB68221E47D81002A359E /* NewsTopicsCell.swift in Sources */,
 				B63FD50422D4845C002B6C71 /* SearchViewContoller.swift in Sources */,
 				B637200921DA4325007BE810 /* MainTabController.swift in Sources */,
+				B63FD55122DB23FA002B6C71 /* ExploreView.swift in Sources */,
 				B63FD54A22D9FED6002B6C71 /* SignUpViewController.swift in Sources */,
 				B6EF678F21CFDC7900AAF04C /* Source.swift in Sources */,
+				B63FD55322DB2579002B6C71 /* CollectionViewCell.swift in Sources */,
 				B637201321DE4A89007BE810 /* NewsViewController.swift in Sources */,
 				B6EF678721CE344500AAF04C /* NewsService.swift in Sources */,
 				B6EF679121CFDD6600AAF04C /* News.swift in Sources */,
+				B63FD54C22DB1E34002B6C71 /* ExploreViewController.swift in Sources */,
 				B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */,
 				B63BB67C21E46FAA002A359E /* NewsTopicController.swift in Sources */,
 				B637200F21DA51AF007BE810 /* HeadlinesCell.swift in Sources */,

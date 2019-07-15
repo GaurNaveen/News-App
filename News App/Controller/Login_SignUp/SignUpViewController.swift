@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
         emailTextField.delegate = self
         reenterPasswordTextField.delegate = self
     }
-    
+
     // Sets the auto layout for the 'sign up' label at the top of the screen.
     func setupAutoLayout(){
         signUpLabel.translatesAutoresizingMaskIntoConstraints = false

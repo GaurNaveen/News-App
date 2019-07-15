@@ -21,22 +21,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let newsProvider = MoyaProvider<NewsService>()
-//        newsProvider.request(.getNews(country: country), completion: { (result) in
-//
-//            switch result {
-//            case .success(let response):
-//               let json = try! JSONSerialization.jsonObject(with: response.data, options: [])
-//
-//                let news = try? JSONDecoder().decode(News.self, from: response.data)
-//               print(news as Any)
-//            print(json)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//
-//        })
-//
         newsProvider.request(.getNews(country: "us", category: ""), completion: { (result) in
             switch result {
             case .success(let response):
