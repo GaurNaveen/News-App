@@ -14,8 +14,9 @@ class ExploreView: UITableViewCell {
     var headlines:News? = nil
     
     var load: Bool = false
-    var category = ["sports","business"]
+    var category = ["Sports","Business","Science","Technology"]
     
+    @IBOutlet weak var categoryType: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,10 @@ class ExploreView: UITableViewCell {
     func reloadCollectionView() {
         collectionView.reloadData()
     }
+    
+    func setupCategoryLabel(indexPath: IndexPath) {
+        categoryType.text = category[indexPath.row]
+    }
 }
 
 extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
@@ -47,6 +52,7 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell else {
             fatalError("Could not deque cell with identifier: cell")
         }

@@ -624,6 +624,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="categoryType" destination="9OU-5Q-KyC" id="zod-pp-Qxe"/>
                                             <outlet property="collectionView" destination="1vL-bV-5kb" id="hKQ-Km-arJ"/>
                                         </connections>
                                     </tableViewCell>

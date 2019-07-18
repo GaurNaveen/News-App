@@ -11,8 +11,9 @@ import Moya
 class ExploreViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var categories = ["sports","business"]
+    var categories = ["Sports","Business","Science","Technology"]
     var headlines: News? = nil
+    @IBOutlet weak var categoryType: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ExploreViewController: UIViewController {
 extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return categories.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,7 +53,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
                 print("message")
             }
         }
-        
+        cell.setupCategoryLabel(indexPath: indexPath)
         cell.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         return cell
     }
