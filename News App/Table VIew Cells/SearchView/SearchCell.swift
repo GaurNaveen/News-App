@@ -51,5 +51,4 @@ class SearchCell: UITableViewCell {
             newsImage.downloaded(from: imageurl)
         }
     }
-    
 }

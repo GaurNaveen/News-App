@@ -50,6 +50,7 @@ class NewsTopicController: UIViewController {
         newsTopics = ["Fashion","NBA","NFL","Soccer","Music","Premier League","Politics","Technology","Apple","Microsoft"]
     }
     
+    
     // MARK: - This function is used to connect to the api and get the data from it.
     /// This function is used to get data from the api about a particular news topic that a user
     /// might select.

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Moya
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var backgroundView: UIView!
@@ -63,7 +63,8 @@ class SignUpViewController: UIViewController {
             rePassword = reenterPasswordTextField.text!
         }
     }
-}
+    
+    }
 
 extension SignUpViewController: UITextFieldDelegate {
     

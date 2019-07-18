@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackgroundView()
@@ -26,7 +25,7 @@ class LoginViewController: UIViewController {
         setupLoginButton()
         setTextFieldDelegates()
     }
-    
+
     /// Setting up the views here.
     let backgroundView: UIView = {
         let view = UIView()

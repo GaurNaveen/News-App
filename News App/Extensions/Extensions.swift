@@ -47,7 +47,6 @@ extension UIView {
     func highlightBorder()  {
         layer.borderWidth = 2.0
         layer.borderColor = UIColor().borderColor().cgColor
-        
     }
     
     /// Adds a shadow effect to the view.
@@ -60,7 +59,6 @@ extension UIView {
         layer.shadowPath = UIBezierPath(rect: bounds).cgPath
         layer.shouldRasterize = false
     }
-    
 }
 
 // MARK: - Extension Methods for UIColor.
@@ -123,3 +121,5 @@ extension UIImageView {
     }
     
 }
+
+

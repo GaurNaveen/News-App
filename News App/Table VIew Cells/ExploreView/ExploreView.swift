@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Moya
 
 class ExploreView: UITableViewCell {
-
+    var row: Int = 0
+    var headlines:News? = nil
+    
+    var load: Bool = false
+    var category = ["sports","business"]
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,13 +23,20 @@ class ExploreView: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
-        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected stated
+    }
+    
+    func setNews(headlines: News) {
+        self.headlines = headlines
+    }
+    
+    func reloadCollectionView() {
+        collectionView.reloadData()
     }
 }
 
@@ -35,13 +48,13 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell else {
-            fatalError("Could not dequeue cell with identifier: cell")
+            fatalError("Could not deque cell with identifier: cell")
         }
-        cell.getNews(category: "sports",indexPath: indexPath)
-        cell.contentView.layer.borderColor = UIColor.black.cgColor
-        cell.contentView.layer.borderWidth = 0.2
-        cell.contentView.layer.cornerRadius = 3
-        //cell.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
-        return cell
+        if headlines != nil {
+            cell.setNews(headlines: self.headlines!,row:indexPath.row)
+              cell.contentView.layer.borderWidth = 0.1
+            cell.contentView.layer.cornerRadius = 5
+        }
+                    return cell
     }
 }

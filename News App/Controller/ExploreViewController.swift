@@ -7,10 +7,12 @@
 //
 
 import UIKit
-
+import Moya
 class ExploreViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var categories = ["sports","business"]
+    var headlines: News? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,6 @@ class ExploreViewController: UIViewController {
     }
 }
 
-
 extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +36,23 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExploreView else {
             fatalError("Could not dequeue cell with identifier: cell --HI")
         }
+        print("Hello")
+        let newsProvider = MoyaProvider<NewsService>()
+        newsProvider.request(.getNews(country: "us", category: categories[indexPath.row])) { (result) in
+            switch result{
+                
+            case .success(let response):
+                if response.statusCode == 200 {
+                    // Parse JSON Response
+                    self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
+                    cell.setNews(headlines: self.headlines!)
+                    cell.reloadCollectionView()
+                }
+            case .failure(_):
+                print("message")
+            }
+        }
+        
         cell.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         return cell
     }
