@@ -24,6 +24,7 @@ class ExploreView: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
+        categoryType.adjustsFontSizeToFitWidth = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

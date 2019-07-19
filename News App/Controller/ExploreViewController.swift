@@ -13,7 +13,6 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var categories = ["Sports","Business","Science","Technology"]
     var headlines: News? = nil
-    @IBOutlet weak var categoryType: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
