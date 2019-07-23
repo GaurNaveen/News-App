@@ -9,13 +9,19 @@
 import UIKit
 import Moya
 
+protocol CollectionCellDelegate: class {
+    func selectedItem()
+}
+
+
 class ExploreView: UITableViewCell {
     var row: Int = 0
     var headlines:News? = nil
     
     var load: Bool = false
     var category = ["Sports","Business","Science","Technology"]
-    
+     var delegate: CollectionCellDelegate?
+
     @IBOutlet weak var categoryType: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     override func awakeFromNib() {
@@ -29,7 +35,6 @@ class ExploreView: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected stated
     }
     
@@ -63,5 +68,10 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
             cell.contentView.layer.cornerRadius = 5
         }
                     return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /// Take this to the webview where the use can view the image.oK
+        self.delegate?.selectedItem()
     }
 }

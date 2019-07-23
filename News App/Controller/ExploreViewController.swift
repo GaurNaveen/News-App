@@ -8,11 +8,24 @@
 
 import UIKit
 import Moya
-class ExploreViewController: UIViewController {
+
+protocol MyCustomCellDelegator {
+    func callSegueFromCell()
+}
+
+
+class ExploreViewController: UIViewController,CollectionCellDelegate {
+    func selectedItem() {
+        performSegue(withIdentifier: "next", sender: self)
+        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 
     @IBOutlet weak var tableView: UITableView!
     var categories = ["Sports","Business","Science","Technology"]
     var headlines: News? = nil
+    var categoryIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +49,9 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExploreView else {
             fatalError("Could not dequeue cell with identifier: cell --HI")
         }
+        
+        cell.delegate = self
+        
         print("Hello")
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.getNews(country: "us", category: categories[indexPath.row])) { (result) in
@@ -55,5 +71,19 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         cell.setupCategoryLabel(indexPath: indexPath)
         cell.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /// This works like magic.
+        performSegue(withIdentifier: "next", sender: self)
+        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
+        self.present(vc, animated: true, completion: nil)
+        categoryIndex = indexPath.row
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? IndividualCategoryNewsController {
+            print(headlines)
+        }
     }
 }

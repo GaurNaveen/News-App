@@ -66,7 +66,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         return cell
     }
     
-    
     /// When the user selects a cell , the app takes the user to a new view where the
     /// user can view the article in it's full capacity.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,7 +134,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }
     }
-    
     
     /// This is use to present an alert to the user indicating something went wrong while
     /// loading the news from the api.

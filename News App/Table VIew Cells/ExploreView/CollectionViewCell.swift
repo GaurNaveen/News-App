@@ -20,6 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
         self.row = row
         setImage()
         setTitle()
+        addTap()
     }
     
     func setImage() {
@@ -36,7 +37,15 @@ class CollectionViewCell: UICollectionViewCell {
     func setTitle() {
         newsTitle.text = headlines?.articles[row].title
     }
+    
+    func addTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        newImage.isUserInteractionEnabled = true
+        newImage.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        print("Lil")
+    }
 }
-
-
-
