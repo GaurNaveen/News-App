@@ -9,9 +9,6 @@
 import UIKit
 import Moya
 
-protocol MyCustomCellDelegator {
-    func callSegueFromCell()
-}
 
 
 class ExploreViewController: UIViewController,CollectionCellDelegate {
@@ -21,10 +18,11 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
-
+var row = 0
     @IBOutlet weak var tableView: UITableView!
     var categories = ["Sports","Business","Science","Technology"]
     var headlines: News? = nil
+    var newsHold: [News] = []
     var categoryIndex: Int = 0
     
     override func viewDidLoad() {
@@ -61,6 +59,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
                 if response.statusCode == 200 {
                     // Parse JSON Response
                     self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
+                    self.newsHold.append(self.headlines!)
                     cell.setNews(headlines: self.headlines!)
                     cell.reloadCollectionView()
                 }
@@ -75,15 +74,20 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// This works like magic.
-        performSegue(withIdentifier: "next", sender: self)
-        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
-        self.present(vc, animated: true, completion: nil)
-        categoryIndex = indexPath.row
+        row = indexPath.row
+        print(row)
+      performSegue(withIdentifier: "next", sender: self)
+//        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
+//        self.present(vc, animated: true, completion: nil)
+//        categoryIndex = indexPath.row
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? IndividualCategoryNewsController {
-            print(headlines)
+            print(row)
+            nextVC.news = newsHold[row]
+            nextVC.category = categories[row]
         }
     }
 }

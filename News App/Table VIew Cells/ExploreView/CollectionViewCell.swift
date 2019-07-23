@@ -20,7 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
         self.row = row
         setImage()
         setTitle()
-        addTap()
+        //addTap()
     }
     
     func setImage() {

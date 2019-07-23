@@ -54,7 +54,7 @@ class ExploreView: UITableViewCell {
 extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
     // This has to return 1.It's fixed.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return headlines?.articles.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
