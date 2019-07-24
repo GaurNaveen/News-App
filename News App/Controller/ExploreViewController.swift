@@ -18,11 +18,11 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
-var row = 0
+    var row = 0
     @IBOutlet weak var tableView: UITableView!
     var categories = ["Sports","Business","Science","Technology"]
     var headlines: News? = nil
-    var newsHold: [News] = []
+    var newsHold = [String:News]()
     var categoryIndex: Int = 0
     
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.delegate = self
         
-        print("Hello")
+        print("Hello,12")
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.getNews(country: "us", category: categories[indexPath.row])) { (result) in
             switch result{
@@ -59,7 +59,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
                 if response.statusCode == 200 {
                     // Parse JSON Response
                     self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
-                    self.newsHold.append(self.headlines!)
+                    self.newsHold[self.categories[indexPath.row]] = self.headlines
                     cell.setNews(headlines: self.headlines!)
                     cell.reloadCollectionView()
                 }
@@ -85,8 +85,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? IndividualCategoryNewsController {
-            print(row)
-            nextVC.news = newsHold[row]
+            nextVC.news = newsHold[categories[row]]
             nextVC.category = categories[row]
         }
     }

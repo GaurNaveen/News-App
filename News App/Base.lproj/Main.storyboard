@@ -703,16 +703,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyj-va-fwL">
+                                <rect key="frame" x="16" y="81" width="40" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="8Ph-Na-s5O"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="back:" destination="dma-cY-yr7" eventType="touchUpInside" id="jKm-mm-eAI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ley-u5-31m" firstAttribute="top" secondItem="wjd-zT-P7i" secondAttribute="top" id="2zh-DT-VTo"/>
+                            <constraint firstItem="wjd-zT-P7i" firstAttribute="trailing" secondItem="qyj-va-fwL" secondAttribute="trailing" constant="319" id="5TC-G2-2lB"/>
                             <constraint firstItem="ley-u5-31m" firstAttribute="leading" secondItem="wjd-zT-P7i" secondAttribute="leading" id="7LS-oy-San"/>
                             <constraint firstItem="0J9-aQ-zmz" firstAttribute="bottom" secondItem="wjd-zT-P7i" secondAttribute="bottom" id="FCu-ym-29g"/>
                             <constraint firstItem="0J9-aQ-zmz" firstAttribute="top" secondItem="ley-u5-31m" secondAttribute="bottom" constant="8" id="Wxn-QA-ViK"/>
                             <constraint firstItem="wjd-zT-P7i" firstAttribute="bottom" secondItem="ley-u5-31m" secondAttribute="bottom" constant="631" id="XN7-CS-4qi"/>
                             <constraint firstItem="0J9-aQ-zmz" firstAttribute="leading" secondItem="wjd-zT-P7i" secondAttribute="leading" id="jto-HT-57A"/>
+                            <constraint firstItem="qyj-va-fwL" firstAttribute="leading" secondItem="wjd-zT-P7i" secondAttribute="leading" constant="16" id="nX0-f0-G49"/>
                             <constraint firstItem="ley-u5-31m" firstAttribute="trailing" secondItem="wjd-zT-P7i" secondAttribute="trailing" id="piT-rm-NaJ"/>
+                            <constraint firstItem="qyj-va-fwL" firstAttribute="top" secondItem="wjd-zT-P7i" secondAttribute="top" constant="37" id="wF5-5S-rEO"/>
                             <constraint firstItem="0J9-aQ-zmz" firstAttribute="trailing" secondItem="wjd-zT-P7i" secondAttribute="trailing" id="ycI-gm-pji"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wjd-zT-P7i"/>
@@ -905,6 +918,7 @@
         <image name="ICON" width="20" height="20"/>
         <image name="NewsIcon" width="20" height="20"/>
         <image name="arrow" width="100" height="100"/>
+        <image name="back" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mc6-uk-1bP"/>

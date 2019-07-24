@@ -15,6 +15,10 @@ class IndividualCategoryNewsController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryType: UILabel!
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
