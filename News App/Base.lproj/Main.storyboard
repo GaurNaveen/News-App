@@ -733,6 +733,7 @@
                     <connections>
                         <outlet property="categoryType" destination="ley-u5-31m" id="Vpy-ka-5lU"/>
                         <outlet property="tableView" destination="0J9-aQ-zmz" id="97y-6T-LOc"/>
+                        <segue destination="xzT-8f-17z" kind="show" identifier="toDashBoard" id="9Qc-0h-xpp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJE-Kg-lnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -826,7 +827,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzD-dM-VQv">
-                                <rect key="frame" x="0.0" y="102" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="720"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -921,6 +922,6 @@
         <image name="back" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mc6-uk-1bP"/>
+        <segue reference="9Qc-0h-xpp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@ class IndividualCategoryNewsController: UIViewController {
     
     var news: News? = nil
     var category: String = ""
+    var selectedIndex = 0
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryType: UILabel!
@@ -36,6 +37,14 @@ class IndividualCategoryNewsController: UIViewController {
     func setupHeading() {
         categoryType.text = category+" News"
     }
+    
+    /// Function sets up the url for the clicked news article, so the WKWebview
+    /// loads the right article.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = (news?.articles[selectedIndex].url)!
+        }
+    }
 }
 
 extension IndividualCategoryNewsController: UITableViewDelegate,UITableViewDataSource {
@@ -50,5 +59,10 @@ extension IndividualCategoryNewsController: UITableViewDelegate,UITableViewDataS
         }
         cell.setupCell(news: news!, row: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "toDashBoard", sender: self)
     }
 }
