@@ -11,6 +11,7 @@
 
 import UIKit
 import Moya
+import Kingfisher
 class HeadlinesCell: UITableViewCell {
     
     @IBOutlet weak var newsImage: UIImageView!
@@ -54,8 +55,9 @@ class HeadlinesCell: UITableViewCell {
     ///   - indexPath: This is the index path of each table view cell.
     func loadImage(news: News,indexPath: IndexPath) {
         // Unwrap the optional
-        if let imageUrl = news.articles[indexPath.row].urlToImage {
-            newsImage.downloaded(from: imageUrl)
+        if let imageurl = news.articles[indexPath.row].urlToImage {
+            let url = URL(string: imageurl)
+            newsImage.kf.setImage(with: url)
         }
     }
     

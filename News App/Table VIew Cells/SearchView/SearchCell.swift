@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Kingfisher
 class SearchCell: UITableViewCell {
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -47,8 +47,9 @@ class SearchCell: UITableViewCell {
     
     func loadImage(){
         // Unrap the optional
-        if let imageurl = fetchedNews?.articles[row ?? 0].urlToImage {
-            newsImage.downloaded(from: imageurl)
+        if let imageurl = fetchedNews?.articles[row!].urlToImage {
+            let url = URL(string: imageurl)
+            newsImage.kf.setImage(with: url)
         }
     }
 }
