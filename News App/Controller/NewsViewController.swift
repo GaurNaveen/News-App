@@ -21,6 +21,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         displayProgressCircle(status: "Show")
         webView.navigationDelegate = self // Used to access the didFinishNavigation method.
@@ -67,8 +68,8 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
         backButton.layer.borderColor = UIColor.init(netHex: 0x3478F6).cgColor
         backButton.layer.cornerRadius = 5
     }
+    
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

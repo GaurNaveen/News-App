@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hXU-q4-0o0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OLV-7G-QWI">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -535,7 +535,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="366" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-5u-mcw">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="366" id="IwO-hB-rW4" customClass="ExploreView" customModule="News_App" customModuleProvider="target">
@@ -649,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcn-xw-Ls5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791.2" y="962.807881773399"/>
+            <point key="canvasLocation" x="2733.5999999999999" y="962.807881773399"/>
         </scene>
         <!--next-->
         <scene sceneID="Xxn-lJ-lQL">
@@ -660,7 +660,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="296" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0J9-aQ-zmz">
-                                <rect key="frame" x="0.0" y="155" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="296" id="erx-9q-KTv" customClass="IndividualCell" customModule="News_App" customModuleProvider="target">
@@ -699,13 +699,13 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ley-u5-31m">
-                                <rect key="frame" x="0.0" y="44" width="375" height="103"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="10"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyj-va-fwL">
-                                <rect key="frame" x="16" y="81" width="40" height="29"/>
+                                <rect key="frame" x="16" y="125" width="40" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="8Ph-Na-s5O"/>
                                 </constraints>
@@ -739,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJE-Kg-lnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730.4000000000001" y="961.33004926108379"/>
+            <point key="canvasLocation" x="3672.8000000000002" y="961.33004926108379"/>
         </scene>
         <!--Headlines View-->
         <scene sceneID="wuA-He-R4C">
@@ -880,6 +880,7 @@
                     <connections>
                         <segue destination="9Gq-2r-e2v" kind="relationship" relationship="viewControllers" id="TE6-k2-XjD"/>
                         <segue destination="ing-Y1-0i0" kind="relationship" relationship="viewControllers" id="Vco-kE-U9Y"/>
+                        <segue destination="8e9-Ky-ygp" kind="relationship" relationship="viewControllers" id="gAK-gI-DDO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOg-Op-VGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -929,6 +930,25 @@
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="187.68472906403943"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="4jC-jA-dzS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8e9-Ky-ygp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Vqk-wE-kvm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lY2-9A-Zw8">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hXU-q4-0o0" kind="relationship" relationship="rootViewController" id="tmC-id-9vh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHS-aK-ctY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791.2" y="962.807881773399"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Featured" width="57" height="57"/>
@@ -938,6 +958,6 @@
         <image name="back" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mc6-uk-1bP"/>
+        <segue reference="o8w-FW-c0I"/>
     </inferredMetricsTieBreakers>
 </document>

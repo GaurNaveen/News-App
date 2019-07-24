@@ -73,7 +73,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         performSegue(withIdentifier: "headlinesTodashboard", sender: self)
     }
     
-    
     // MARK: - Provides animation on the table view cells.
     /// This function is called fraction of time before displaying the cells.It is being used to
     /// animate the table view cells.
@@ -86,7 +85,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
             cell.alpha = 1.0
         }
     }
-    
     
     /// Function sets up the url for the clicked news article, so the WKWebview
     /// loads the right article.
