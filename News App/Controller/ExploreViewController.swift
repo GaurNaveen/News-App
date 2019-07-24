@@ -9,18 +9,21 @@
 import UIKit
 import Moya
 
-
-
 class ExploreViewController: UIViewController,CollectionCellDelegate {
-    func selectedItem() {
-        performSegue(withIdentifier: "next", sender: self)
-        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
-        self.present(vc, animated: true, completion: nil)
+
+    
+    
+    func selectedItem(selectedNews: Article) {
+        self.selectedNews = selectedNews
+        performSegue(withIdentifier: "toDashboard2", sender: self)
+//        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
+//        self.present(vc, animated: true, completion: nil)
     }
     
     var row = 0
     @IBOutlet weak var tableView: UITableView!
     var categories = ["Sports","Business","Science","Technology"]
+    var selectedNews: Article? = nil
     var headlines: News? = nil
     var newsHold = [String:News]()
     var categoryIndex: Int = 0
@@ -87,6 +90,10 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         if let nextVC = segue.destination as? IndividualCategoryNewsController {
             nextVC.news = newsHold[categories[row]]
             nextVC.category = categories[row]
+        }
+        
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = (selectedNews?.url)!
         }
     }
 }

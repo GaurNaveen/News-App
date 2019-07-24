@@ -644,6 +644,7 @@
                     <connections>
                         <outlet property="tableView" destination="x1A-5u-mcw" id="X0r-j8-D9f"/>
                         <segue destination="dma-cY-yr7" kind="show" identifier="next" id="jpR-g0-zvD"/>
+                        <segue destination="xzT-8f-17z" kind="show" identifier="toDashboard2" id="o8w-FW-c0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcn-xw-Ls5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -922,6 +923,6 @@
         <image name="back" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Qc-0h-xpp"/>
+        <segue reference="o8w-FW-c0I"/>
     </inferredMetricsTieBreakers>
 </document>

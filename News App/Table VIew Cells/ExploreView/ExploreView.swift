@@ -10,7 +10,7 @@ import UIKit
 import Moya
 
 protocol CollectionCellDelegate: class {
-    func selectedItem()
+    func selectedItem(selectedNews: Article)
 }
 
 
@@ -72,6 +72,6 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// Take this to the webview where the use can view the image.oK
-        self.delegate?.selectedItem()
+        self.delegate?.selectedItem(selectedNews: (headlines?.articles[indexPath.row])!)
     }
 }
