@@ -828,24 +828,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzD-dM-VQv">
-                                <rect key="frame" x="0.0" y="58" width="375" height="720"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="685"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMd-30-ylm">
+                                <rect key="frame" x="16" y="44" width="77" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.20392156862745098" green="0.47058823529411764" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="xzT-8f-17z" eventType="touchUpInside" id="IAL-44-V8d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YMd-30-ylm" firstAttribute="leading" secondItem="iIs-md-5Ao" secondAttribute="leading" constant="16" id="5cp-rz-Lyt"/>
                             <constraint firstItem="VzD-dM-VQv" firstAttribute="trailing" secondItem="iIs-md-5Ao" secondAttribute="trailing" id="FES-GC-Pdy"/>
-                            <constraint firstItem="VzD-dM-VQv" firstAttribute="top" secondItem="iIs-md-5Ao" secondAttribute="top" constant="14" id="Kj7-s1-Gff"/>
+                            <constraint firstItem="VzD-dM-VQv" firstAttribute="top" secondItem="iIs-md-5Ao" secondAttribute="top" constant="49" id="Kj7-s1-Gff"/>
+                            <constraint firstItem="iIs-md-5Ao" firstAttribute="trailing" secondItem="YMd-30-ylm" secondAttribute="trailing" constant="282" id="TVw-Mv-vBS"/>
                             <constraint firstItem="VzD-dM-VQv" firstAttribute="leading" secondItem="iIs-md-5Ao" secondAttribute="leading" id="YFa-6f-Itf"/>
                             <constraint firstItem="VzD-dM-VQv" firstAttribute="bottom" secondItem="iIs-md-5Ao" secondAttribute="bottom" id="pQL-Yu-xGq"/>
+                            <constraint firstItem="VzD-dM-VQv" firstAttribute="top" secondItem="YMd-30-ylm" secondAttribute="bottom" constant="5" id="wsP-75-k5E"/>
+                            <constraint firstItem="YMd-30-ylm" firstAttribute="top" secondItem="iIs-md-5Ao" secondAttribute="top" id="xd8-mS-Slf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iIs-md-5Ao"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="YMd-30-ylm" id="Apc-x2-xf6"/>
                         <outlet property="webView" destination="VzD-dM-VQv" id="rZ4-BA-msp"/>
                     </connections>
                 </viewController>

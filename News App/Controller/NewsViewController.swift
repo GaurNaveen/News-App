@@ -17,11 +17,15 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     var url1 = ""
     
+    
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayProgressCircle(status: "Show")
         webView.navigationDelegate = self // Used to access the didFinishNavigation method.
         loadWebPage()
+        setupBackButton()
     }
     
     /// This function makes sure that when the user hits the back button
@@ -57,5 +61,14 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
             SVProgressHUD.dismiss()
         }
     }
-   
+    
+    func setupBackButton() {
+        backButton.layer.borderWidth = 0.5
+        backButton.layer.borderColor = UIColor.init(netHex: 0x3478F6).cgColor
+        backButton.layer.cornerRadius = 5
+    }
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

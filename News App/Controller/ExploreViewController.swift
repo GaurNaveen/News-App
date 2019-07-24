@@ -16,8 +16,8 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
     func selectedItem(selectedNews: Article) {
         self.selectedNews = selectedNews
         performSegue(withIdentifier: "toDashboard2", sender: self)
-//        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
-//        self.present(vc, animated: true, completion: nil)
+        // let vc = storyboard!.instantiateViewController(withIdentifier: "next")
+        // self.present(vc, animated: true, completion: nil)
     }
     
     var row = 0
