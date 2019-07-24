@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import Kingfisher
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var newImage: UIImageView!
     @IBOutlet weak var newsTitle: UILabel!
@@ -25,7 +26,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func setImage() {
         if let imageurl = headlines?.articles[row].urlToImage {
-            newImage.downloaded(from: imageurl)
+            let url = URL(string: imageurl)
+            newImage.kf.setImage(with: url)
         }
         
         newImage.contentMode = .scaleAspectFit

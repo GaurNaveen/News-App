@@ -8,6 +8,7 @@ target 'News App' do
   # Pods for News App
   pod 'Moya'
   pod 'SVProgressHUD'
+  pod 'Kingfisher'
 target 'News AppTests' do
     inherit! :search_paths
     # Pods for testing
