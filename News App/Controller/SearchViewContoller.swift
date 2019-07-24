@@ -112,7 +112,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
             fatalError("Could not dequeue cell with identifier: cell")
         }
-        
+        cell.dropShadow()
         cell.diplayNews(news: headlines, indexPath: indexPath)
         return cell
     }

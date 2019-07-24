@@ -86,6 +86,19 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         
     }
     
+    // MARK: - Provides animation on the table view cells.
+    /// This function is called fraction of time before displaying the cells.It is being used to
+    /// animate the table view cells.
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = animationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? IndividualCategoryNewsController {
             nextVC.news = newsHold[categories[row]]

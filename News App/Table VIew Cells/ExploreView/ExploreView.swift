@@ -74,4 +74,14 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
         /// Take this to the webview where the use can view the image.oK
         self.delegate?.selectedItem(selectedNews: (headlines?.articles[indexPath.row])!)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = animationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
 }
