@@ -10,6 +10,7 @@
 		67A3E421ED8A11CC6D8FDF56 /* Pods_News_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57263549BCCE71316C63F0F /* Pods_News_AppUITests.framework */; };
 		6FE731E488112B29E0C39246 /* Pods_News_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC91FC1B31654226F13B49E /* Pods_News_AppTests.framework */; };
 		A06FDFD171B19DE34F12075D /* Pods_News_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C7B0007A44E45A12C62411 /* Pods_News_App.framework */; };
+		B6070C2522E877C200557176 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6070C2422E877C200557176 /* CategorySelectionViewController.swift */; };
 		B637200921DA4325007BE810 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637200821DA4325007BE810 /* MainTabController.swift */; };
 		B637200B21DA4EA0007BE810 /* HeadlinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637200A21DA4EA0007BE810 /* HeadlinesController.swift */; };
 		B637200F21DA51AF007BE810 /* HeadlinesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637200E21DA51AF007BE810 /* HeadlinesCell.swift */; };
@@ -18,6 +19,7 @@
 		B63BB67F21E47AB0002A359E /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63BB67E21E47AB0002A359E /* GlobalVariables.swift */; };
 		B63BB68221E47D81002A359E /* NewsTopicsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63BB68121E47D81002A359E /* NewsTopicsCell.swift */; };
 		B63BB68421E75712002A359E /* FeatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63BB68321E75712002A359E /* FeatureService.swift */; };
+		B63CE7E322F41B20004339D0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63CE7E222F41B20004339D0 /* WebKit.framework */; };
 		B63FD50422D4845C002B6C71 /* SearchViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */; };
 		B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54322D4CC63002B6C71 /* SearchCell.swift */; };
 		B63FD54822D82A8E002B6C71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD54722D82A8E002B6C71 /* LoginViewController.swift */; };
@@ -68,6 +70,7 @@
 		8DC91FC1B31654226F13B49E /* Pods_News_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9037F9AEC2E8232E20FD0AFD /* Pods-News App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News App/Pods-News App.debug.xcconfig"; sourceTree = "<group>"; };
 		B57263549BCCE71316C63F0F /* Pods_News_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6070C2422E877C200557176 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		B637200821DA4325007BE810 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		B637200A21DA4EA0007BE810 /* HeadlinesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesController.swift; sourceTree = "<group>"; };
 		B637200E21DA51AF007BE810 /* HeadlinesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesCell.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		B63BB67E21E47AB0002A359E /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		B63BB68121E47D81002A359E /* NewsTopicsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTopicsCell.swift; sourceTree = "<group>"; };
 		B63BB68321E75712002A359E /* FeatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureService.swift; sourceTree = "<group>"; };
+		B63CE7E222F41B20004339D0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewContoller.swift; sourceTree = "<group>"; };
 		B63FD54322D4CC63002B6C71 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		B63FD54722D82A8E002B6C71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63CE7E322F41B20004339D0 /* WebKit.framework in Frameworks */,
 				A06FDFD171B19DE34F12075D /* Pods_News_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +321,7 @@
 				B63FD50322D4845C002B6C71 /* SearchViewContoller.swift */,
 				B63FD54B22DB1E34002B6C71 /* ExploreViewController.swift */,
 				B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */,
+				B6070C2422E877C200557176 /* CategorySelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 		C67654F04EE0FFBB5F629127 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B63CE7E222F41B20004339D0 /* WebKit.framework */,
 				54C7B0007A44E45A12C62411 /* Pods_News_App.framework */,
 				8DC91FC1B31654226F13B49E /* Pods_News_AppTests.framework */,
 				B57263549BCCE71316C63F0F /* Pods_News_AppUITests.framework */,
@@ -517,8 +524,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-News App/Pods-News App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnetic/Magnetic.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SIFloatingCollection/SIFloatingCollection.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -527,8 +536,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnetic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIFloatingCollection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +618,7 @@
 				B637200B21DA4EA0007BE810 /* HeadlinesController.swift in Sources */,
 				B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */,
 				B6EF678B21CFDABF00AAF04C /* Article.swift in Sources */,
+				B6070C2522E877C200557176 /* CategorySelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +708,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72F2HJBU4U;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -757,6 +770,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 72F2HJBU4U;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

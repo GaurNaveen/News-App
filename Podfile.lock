@@ -1,34 +1,42 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Kingfisher (4.10.0)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya/Core (11.0.2):
+  - Alamofire (4.8.2)
+  - Kingfisher (5.7.0)
+  - Magnetic (3.0.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Result (3.2.4)
+    - Result (~> 4.1)
+  - Result (4.1.0)
+  - SIFloatingCollection (3.0.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Kingfisher
+  - Magnetic
   - Moya
+  - SIFloatingCollection
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
+    - Magnetic
     - Moya
     - Result
+    - SIFloatingCollection
     - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
+  Magnetic: 58cb8c73dfe73f783ede7719b80202f90c94bdd9
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SIFloatingCollection: 096160b220e3a1b1cbcf349108ee24d3aa6b86de
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c93c66cc864376352dfc4f8b9e81131cded00721
+PODFILE CHECKSUM: 4bac3d899c9d79cc85976f183dad8bebdd7ff8df
 
 COCOAPODS: 1.5.3

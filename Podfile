@@ -9,6 +9,8 @@ target 'News App' do
   pod 'Moya'
   pod 'SVProgressHUD'
   pod 'Kingfisher'
+  pod 'Magnetic'
+  pod 'SIFloatingCollection'
 target 'News AppTests' do
     inherit! :search_paths
     # Pods for testing
@@ -18,5 +20,4 @@ target 'News AppTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end

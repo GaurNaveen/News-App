@@ -11,8 +11,6 @@ import Moya
 
 class ExploreViewController: UIViewController,CollectionCellDelegate {
 
-    
-    
     func selectedItem(selectedNews: Article) {
         self.selectedNews = selectedNews
         performSegue(withIdentifier: "toDashboard2", sender: self)
@@ -84,7 +82,6 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
 //        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
 //        self.present(vc, animated: true, completion: nil)
 //        categoryIndex = indexPath.row
-        
     }
     
     // MARK: - Provides animation on the table view cells.

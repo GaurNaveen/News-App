@@ -131,7 +131,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         
     }
     
-    
     //TODO: When the user selects the row , take them to the webview. The webview has
     // already been creates so reuse that.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -180,11 +179,9 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         }
     }
     
-
 //    override func viewWillAppear(_ animated: Bool) {
 //        // This is done for dynamic height of table view rows.
 //        tableView.rowHeight = UITableView.automaticDimension
 //        tableView.estimatedRowHeight = 296
 //    }
 }
-

@@ -70,4 +70,5 @@ extension NewsService: TargetType {
     var headers: [String : String]? {
         return ["X-Api-Key":"4eddeca93e8d4594bc9a605f7ef49319"]
     }
+    
 }

@@ -19,3 +19,5 @@ struct Article: Decodable {
     let publishedAt: String?    // This is the date on which the article was published.
     let content: String?
 }
+
+
