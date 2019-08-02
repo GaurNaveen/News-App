@@ -30,6 +30,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.dataSource = self
         tableView.separatorColor = .black
         fetchNewsForRegion(countryCode: "us")
+        tableView.keyboardDismissMode = .onDrag
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

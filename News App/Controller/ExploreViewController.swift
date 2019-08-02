@@ -34,6 +34,7 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         tableView.separatorColor = .black
         tableView.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         view.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
+        tableView.keyboardDismissMode = .onDrag
     }
 
 }
