@@ -16,6 +16,20 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    // This is used to add pull to refreh the news headlines on the table view.
+    private lazy var refresher1: UIRefreshControl = {
+        let refresherControl = UIRefreshControl()
+        refresherControl.tintColor = .black
+       // refresherControl.addTarget(self, action: Selector("getNews"), for: .valueChanged)
+        return refresherControl
+    }()
+    
+    private lazy var refresher: UIRefreshControl = {
+       let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        refreshControl.addTarget(self, action: #selector(fetchNews), for: .valueChanged)
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +45,16 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.separatorColor = .black
         fetchNewsForRegion(countryCode: "us")
         tableView.keyboardDismissMode = .onDrag
+        tableView.refreshControl = refresher // adds the pull to refresh to the table view.
     }
     
+    // TODO: When the user removes the text from the search bar then, change the news back to default.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        if searchBar.text!.isEmpty {
+        }
+    }
+    
+    @objc func getNews() {
     }
     
     
@@ -42,7 +62,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     /// By default it is set to "US"
     ///
     /// - Parameter countryCode: The country code , for which the news is required.
-    func fetchNewsForRegion(countryCode: String) {
+    @objc func fetchNewsForRegion(countryCode: String) {
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.region(country: countryCode)) { (result) in
             switch result {
@@ -52,6 +72,10 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
                     self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
                     //TODO: Reload the table view data.
                     self.tableView.reloadData()
+                    // This is to stop the refreshing when the user pulls to refresh.
+                    if self.refresher.isRefreshing {
+                        self.refresher.endRefreshing()
+                    }
                 }
                 else {
                     print(response.statusCode)
@@ -62,6 +86,36 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
             }
         }
     }
+    
+    /// This function is used to retrieve news from the API for a particular country.
+    /// By default it is set to "US"
+    ///
+    /// - Parameter countryCode: The country code , for which the news is required.
+    @objc func fetchNews() {
+        let newsProvider = MoyaProvider<NewsService>()
+        newsProvider.request(.region(country: "us")) { (result) in
+            switch result {
+            case .success(let response):
+                if response.statusCode == 200 {
+                    // Parse JSON Response
+                    self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
+                    //TODO: Reload the table view data.
+                    self.tableView.reloadData()
+                    // This is to stop the refreshing when the user pulls to refresh.
+                    if self.refresher.isRefreshing {
+                        self.refresher.endRefreshing()
+                    }
+                }
+                else {
+                    print(response.statusCode)
+                }
+                
+            case .failure(_):
+                print("BOOM Here is the error")
+            }
+        }
+    }
+    
     
    
     /// This function checks for erroe status codes and provides
@@ -157,7 +211,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
             fetchSearchNews(searchQuery: text)
             }
         }
-        
     
     func fetchSearchNews(searchQuery:String){
         let newsProvider = MoyaProvider<NewsService>()
@@ -179,7 +232,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
             }
         }
     }
-    
+
 //    override func viewWillAppear(_ animated: Bool) {
 //        // This is done for dynamic height of table view rows.
 //        tableView.rowHeight = UITableView.automaticDimension

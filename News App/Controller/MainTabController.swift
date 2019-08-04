@@ -12,7 +12,19 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
     }
+    
+    @IBOutlet weak var heaadlinesTab: UITabBar!
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 1 {
+            // Move to the top of the screen
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

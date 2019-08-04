@@ -75,13 +75,13 @@ extension ExploreView: UICollectionViewDataSource,UICollectionViewDelegate {
         self.delegate?.selectedItem(selectedNews: (headlines?.articles[indexPath.row])!)
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
-        cell.layer.transform = animationTransform
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.75) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1.0
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+//        cell.layer.transform = animationTransform
+//        cell.alpha = 0
+//        UIView.animate(withDuration: 0.75) {
+//            cell.layer.transform = CATransform3DIdentity
+//            cell.alpha = 1.0
+//        }
+//    }
 }
