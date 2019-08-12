@@ -77,14 +77,20 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     /// This function is called fraction of time before displaying the cells.It is being used to
     /// animate the table view cells.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-         let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
-        cell.layer.transform = animationTransform
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.75) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1.0
+        
+        if tableView.isScrollEnabled {
+            // Don't do anything.
+        } else {
+            let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+            cell.layer.transform = animationTransform
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.75) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+            }
         }
     }
+    
     
     /// Function sets up the url for the clicked news article, so the WKWebview
     /// loads the right article.

@@ -51,12 +51,12 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     // TODO: When the user removes the text from the search bar then, change the news back to default.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text!.isEmpty {
+            fetchNewsForRegion(countryCode: "us")
         }
     }
     
     @objc func getNews() {
     }
-    
     
     /// This function is used to retrieve news from the API for a particular country.
     /// By default it is set to "US"
@@ -116,8 +116,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         }
     }
     
-    
-   
     /// This function checks for erroe status codes and provides
     /// appropiate description.
     ///
@@ -176,12 +174,18 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     /// This function is called fraction of time before displaying the cells.It is being used to
     /// animate the table view cells.
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if tableView.isScrollEnabled {
+            // Don't do anything.
+            
+        } else {
         let animationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
         cell.layer.transform = animationTransform
         cell.alpha = 0
         UIView.animate(withDuration: 0.75) {
             cell.layer.transform = CATransform3DIdentity
             cell.alpha = 1.0
+        }
         }
         
     }

@@ -11,6 +11,7 @@ target 'News App' do
   pod 'Kingfisher'
   pod 'Magnetic'
   pod 'SIFloatingCollection'
+  pod "Magnetic"
 target 'News AppTests' do
     inherit! :search_paths
     # Pods for testing

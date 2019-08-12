@@ -36,7 +36,6 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         view.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         tableView.keyboardDismissMode = .onDrag
     }
-
 }
 
 extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {

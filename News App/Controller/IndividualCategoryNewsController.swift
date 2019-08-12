@@ -13,7 +13,7 @@ class IndividualCategoryNewsController: UIViewController {
     var news: News? = nil
     var category: String = ""
     var selectedIndex = 0
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryType: UILabel!
     @IBAction func back(_ sender: Any) {
