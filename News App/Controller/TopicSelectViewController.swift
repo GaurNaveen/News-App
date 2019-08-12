@@ -9,9 +9,10 @@
 import UIKit
 import Magnetic
 class TopicSelectViewController: UIViewController {
-    
+    // This will hold the user selected topics.
     var userSelectedNodes: [String] = []
 
+    /// This is the setup for the view. It displays the bubbles the user can tap on.
     @IBOutlet weak var magneticView: MagneticView! {
         didSet {
             magnetic.magneticDelegate = self
@@ -23,6 +24,7 @@ class TopicSelectViewController: UIViewController {
         }
     }
 
+    /// This is for th Add button. When the user taps on it , more bubbles are added.
     @IBAction func add(_ sender: Any) {
         
         let name = UIImage.names.randomItem()
@@ -45,6 +47,7 @@ class TopicSelectViewController: UIViewController {
         return magneticView.magnetic
     }
     
+    /// When the view appears,initially 12 bubbles appear.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -58,11 +61,8 @@ class TopicSelectViewController: UIViewController {
 // MARK: - MagneticDelegate
 extension TopicSelectViewController: MagneticDelegate {
     
-    /// This Function will help you identify which option was selected by the user.
-    ///
-    /// - Parameters:
-    ///   - magnetic: magnetic object
-    ///   - node: The category node.
+    ///    This Function will help you identify which option was selected by the user.
+    ///     This infomation will then be passed to the explore view controller.
     func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
         print("didSelect -> \(node)")
         print(node.text ?? "none")
