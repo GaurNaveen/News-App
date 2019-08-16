@@ -12,6 +12,11 @@ class TopicSelectViewController: UIViewController {
     // This will hold the user selected topics.
     var userSelectedNodes: [String] = []
 
+    @IBAction func nextButton(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
     /// This is the setup for the view. It displays the bubbles the user can tap on.
     @IBOutlet weak var magneticView: MagneticView! {
         didSet {
@@ -41,6 +46,8 @@ class TopicSelectViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nextButton.alpha = 0
+    
     }
     
     var magnetic: Magnetic {
@@ -55,6 +62,11 @@ class TopicSelectViewController: UIViewController {
             add([])
         }
     }
+    
+    // MARK: - Move Forward
+    
+    
+    
 
 }
 
@@ -67,10 +79,13 @@ extension TopicSelectViewController: MagneticDelegate {
         print("didSelect -> \(node)")
         print(node.text ?? "none")
         userSelectedNodes.append(node.text ?? "none")
+        
+        if userSelectedNodes.count>1 {
+            nextButton.alpha = 1
+        }
     }
     
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
         print("didDeselect -> \(node)")
     }
 }
-

@@ -19,10 +19,9 @@ class MainTabController: UITabBarController {
     @IBOutlet weak var heaadlinesTab: UITabBar!
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.tag == 1 {
             // Move to the top of the screen
-            
-        }
+            print("tab bar item has been tapped")
+        
     }
     
     /*

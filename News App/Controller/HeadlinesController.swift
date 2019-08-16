@@ -13,7 +13,7 @@ import UIKit
 import Moya
 import SVProgressHUD
 
-class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
@@ -147,4 +147,11 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 1 {
+            print("tab bar item tapped")
+        }
+    }
 }
+
