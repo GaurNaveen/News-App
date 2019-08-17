@@ -43,7 +43,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .black
-        fetchNewsForRegion(countryCode: "us")
+        fetchNewsForRegion(countryCode: "au")
         tableView.keyboardDismissMode = .onDrag
         tableView.refreshControl = refresher // adds the pull to refresh to the table view.
         

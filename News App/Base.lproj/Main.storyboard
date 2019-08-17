@@ -646,7 +646,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iV5-DC-IGj" customClass="MagneticView" customModule="Magnetic">
-                                <rect key="frame" x="16" y="133" width="343" height="562"/>
+                                <rect key="frame" x="0.0" y="133" width="375" height="562"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-uo-BP3">
@@ -657,8 +657,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTE-oj-v0X">
-                                <rect key="frame" x="29" y="720" width="76" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="41" y="720" width="91" height="30"/>
+                                <state key="normal" title="Go to Home"/>
                                 <connections>
                                     <action selector="nextButton:" destination="NNa-06-uxT" eventType="touchUpInside" id="r7u-cb-K5M"/>
                                 </connections>
@@ -667,16 +667,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Sh-uo-BP3" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="262" id="1Ui-Df-5jb"/>
-                            <constraint firstItem="r2O-VE-qkD" firstAttribute="trailing" secondItem="iV5-DC-IGj" secondAttribute="trailing" constant="16" id="2aM-lV-rp4"/>
+                            <constraint firstItem="r2O-VE-qkD" firstAttribute="trailing" secondItem="iV5-DC-IGj" secondAttribute="trailing" id="2aM-lV-rp4"/>
                             <constraint firstItem="r2O-VE-qkD" firstAttribute="trailing" secondItem="4Sh-uo-BP3" secondAttribute="trailing" constant="37" id="4Jn-gr-xx3"/>
                             <constraint firstItem="iV5-DC-IGj" firstAttribute="bottom" secondItem="r2O-VE-qkD" secondAttribute="bottom" constant="-83" id="7Fl-dy-CgQ"/>
                             <constraint firstItem="iV5-DC-IGj" firstAttribute="top" secondItem="r2O-VE-qkD" secondAttribute="top" constant="89" id="KqH-26-J1E"/>
-                            <constraint firstItem="iV5-DC-IGj" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="16" id="MA2-wp-ytG"/>
+                            <constraint firstItem="iV5-DC-IGj" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" id="MA2-wp-ytG"/>
                             <constraint firstItem="GTE-oj-v0X" firstAttribute="top" secondItem="iV5-DC-IGj" secondAttribute="bottom" constant="25" id="Na9-Xo-V3J"/>
-                            <constraint firstItem="GTE-oj-v0X" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="29" id="WqW-9Q-Y4v"/>
+                            <constraint firstItem="GTE-oj-v0X" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="41" id="WqW-9Q-Y4v"/>
                             <constraint firstItem="r2O-VE-qkD" firstAttribute="bottom" secondItem="GTE-oj-v0X" secondAttribute="bottom" constant="28" id="bOM-Fn-hu1"/>
                             <constraint firstItem="4Sh-uo-BP3" firstAttribute="top" secondItem="iV5-DC-IGj" secondAttribute="bottom" constant="25" id="fLl-zm-7JQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GTE-oj-v0X" secondAttribute="trailing" constant="254" id="gKO-Bj-LiV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GTE-oj-v0X" secondAttribute="trailing" constant="227" id="gKO-Bj-LiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r2O-VE-qkD"/>
                     </view>
@@ -688,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzn-NM-FsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1815" y="-285"/>
+            <point key="canvasLocation" x="-1815.2" y="-285.22167487684732"/>
         </scene>
         <!--Headlines View-->
         <scene sceneID="wuA-He-R4C">
