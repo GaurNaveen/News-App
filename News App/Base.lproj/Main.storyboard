@@ -663,6 +663,15 @@
                                     <action selector="nextButton:" destination="NNa-06-uxT" eventType="touchUpInside" id="r7u-cb-K5M"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose  news topics " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-Q3-7Kv">
+                                <rect key="frame" x="16" y="75" width="343" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="yGj-VL-FbO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -673,10 +682,13 @@
                             <constraint firstItem="iV5-DC-IGj" firstAttribute="top" secondItem="r2O-VE-qkD" secondAttribute="top" constant="89" id="KqH-26-J1E"/>
                             <constraint firstItem="iV5-DC-IGj" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" id="MA2-wp-ytG"/>
                             <constraint firstItem="GTE-oj-v0X" firstAttribute="top" secondItem="iV5-DC-IGj" secondAttribute="bottom" constant="25" id="Na9-Xo-V3J"/>
+                            <constraint firstItem="9nI-Q3-7Kv" firstAttribute="top" secondItem="r2O-VE-qkD" secondAttribute="top" constant="31" id="RgC-hF-IcH"/>
                             <constraint firstItem="GTE-oj-v0X" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="41" id="WqW-9Q-Y4v"/>
                             <constraint firstItem="r2O-VE-qkD" firstAttribute="bottom" secondItem="GTE-oj-v0X" secondAttribute="bottom" constant="28" id="bOM-Fn-hu1"/>
+                            <constraint firstItem="9nI-Q3-7Kv" firstAttribute="leading" secondItem="r2O-VE-qkD" secondAttribute="leading" constant="16" id="c6B-FC-tq5"/>
                             <constraint firstItem="4Sh-uo-BP3" firstAttribute="top" secondItem="iV5-DC-IGj" secondAttribute="bottom" constant="25" id="fLl-zm-7JQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GTE-oj-v0X" secondAttribute="trailing" constant="227" id="gKO-Bj-LiV"/>
+                            <constraint firstItem="r2O-VE-qkD" firstAttribute="trailing" secondItem="9nI-Q3-7Kv" secondAttribute="trailing" constant="16" id="qFZ-Xa-2lu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r2O-VE-qkD"/>
                     </view>
