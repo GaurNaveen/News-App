@@ -32,6 +32,7 @@
 		B6431AEF22E15DFB00619A34 /* IndividualCategoryNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */; };
 		B6431AF222E1DCDD00619A34 /* IndividualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6431AF122E1DCDD00619A34 /* IndividualCell.swift */; };
 		B64DA41822FC22EE0021B875 /* BubbleSelectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64DA41722FC22EE0021B875 /* BubbleSelectExtensions.swift */; };
+		B64E02D52308073500D14EE0 /* FavTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */; };
 		B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675521CE241800AAF04C /* AppDelegate.swift */; };
 		B6EF675821CE241800AAF04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675721CE241800AAF04C /* ViewController.swift */; };
 		B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675921CE241800AAF04C /* Main.storyboard */; };
@@ -94,6 +95,7 @@
 		B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCategoryNewsController.swift; sourceTree = "<group>"; };
 		B6431AF122E1DCDD00619A34 /* IndividualCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCell.swift; sourceTree = "<group>"; };
 		B64DA41722FC22EE0021B875 /* BubbleSelectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleSelectExtensions.swift; sourceTree = "<group>"; };
+		B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTopicsViewController.swift; sourceTree = "<group>"; };
 		B6EF675221CE241800AAF04C /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EF675521CE241800AAF04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EF675721CE241800AAF04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */,
 				B6070C2422E877C200557176 /* CategorySelectionViewController.swift */,
 				B63CE7E422F703F4004339D0 /* TopicSelectViewController.swift */,
+				B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				B63BB67C21E46FAA002A359E /* NewsTopicController.swift in Sources */,
 				B637200F21DA51AF007BE810 /* HeadlinesCell.swift in Sources */,
 				B63BB67F21E47AB0002A359E /* GlobalVariables.swift in Sources */,
+				B64E02D52308073500D14EE0 /* FavTopicsViewController.swift in Sources */,
 				B64DA41822FC22EE0021B875 /* BubbleSelectExtensions.swift in Sources */,
 				B637200B21DA4EA0007BE810 /* HeadlinesController.swift in Sources */,
 				B63FD54422D4CC63002B6C71 /* SearchCell.swift in Sources */,
