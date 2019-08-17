@@ -8,11 +8,20 @@
 
 import UIKit
 import Magnetic
+
+
 class TopicSelectViewController: UIViewController {
     // This will hold the user selected topics.
-    var userSelectedNodes: [String] = []
+     public var userSelectedNodes: [String] = []
+    
+     var getUserSelectedNodes: [String] {
+        get {
+            return userSelectedNodes
+        }
+    }
 
     @IBAction func nextButton(_ sender: Any) {
+        performSegue(withIdentifier:"moveToMainTabBar" , sender: self)
     }
     
     @IBOutlet weak var nextButton: UIButton!

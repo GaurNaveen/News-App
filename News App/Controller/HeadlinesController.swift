@@ -154,4 +154,3 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
     }
 }
-

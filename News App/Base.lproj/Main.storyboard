@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-924" y="-331"/>
+            <point key="canvasLocation" x="-559" y="1639"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="yqp-fO-3AX">
@@ -683,11 +683,12 @@
                     <connections>
                         <outlet property="magneticView" destination="iV5-DC-IGj" id="IRf-Kv-JAK"/>
                         <outlet property="nextButton" destination="GTE-oj-v0X" id="tHN-Na-uqd"/>
+                        <segue destination="OLV-7G-QWI" kind="show" identifier="moveToMainTabBar" id="WFD-tY-wEl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzn-NM-FsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4634.3999999999996" y="959.85221674876857"/>
+            <point key="canvasLocation" x="-1815" y="-285"/>
         </scene>
         <!--Headlines View-->
         <scene sceneID="wuA-He-R4C">

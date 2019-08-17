@@ -63,7 +63,7 @@ extension NewsService: TargetType {
         case .region(let country):
             return .requestParameters(parameters: ["country":country], encoding: URLEncoding.default)
         case .search(let query):
-            return .requestParameters(parameters: ["q":query,"sortBy":"popularity"], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["q":query,"from":"2019-07-17","sortBy":"publishedAt"], encoding: URLEncoding.default)
         }
     }
     
