@@ -36,6 +36,10 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         view.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         tableView.keyboardDismissMode = .onDrag
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {

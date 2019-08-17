@@ -46,6 +46,9 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         fetchNewsForRegion(countryCode: "us")
         tableView.keyboardDismissMode = .onDrag
         tableView.refreshControl = refresher // adds the pull to refresh to the table view.
+        
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show(withStatus: "Loading News")
     }
     
     // TODO: When the user removes the text from the search bar then, change the news back to default.
@@ -72,6 +75,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
                     self.headlines = try! JSONDecoder().decode(News.self, from: response.data)
                     //TODO: Reload the table view data.
                     self.tableView.reloadData()
+                    SVProgressHUD.dismiss()
                     // This is to stop the refreshing when the user pulls to refresh.
                     if self.refresher.isRefreshing {
                         self.refresher.endRefreshing()
