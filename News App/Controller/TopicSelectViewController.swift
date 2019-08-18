@@ -9,6 +9,7 @@
 import UIKit
 import Magnetic
 
+var userSelectedTopics: [String] = []
 
 class TopicSelectViewController: UIViewController {
     // This will hold the user selected topics.
@@ -73,10 +74,6 @@ class TopicSelectViewController: UIViewController {
     }
     
     // MARK: - Move Forward
-    
-    
-    
-
 }
 
 // MARK: - MagneticDelegate
@@ -87,9 +84,9 @@ extension TopicSelectViewController: MagneticDelegate {
     func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
         print("didSelect -> \(node)")
         print(node.text ?? "none")
-        userSelectedNodes.append(node.text ?? "none")
+        userSelectedTopics.append(node.text ?? "none")
         
-        if userSelectedNodes.count>1 {
+        if userSelectedTopics.count>1 {
             nextButton.alpha = 1
         }
     }
