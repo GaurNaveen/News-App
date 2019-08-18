@@ -30,7 +30,6 @@ class FavTopicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchNewsForFavTopics()
         setTableViewConstraints()
     }
     
