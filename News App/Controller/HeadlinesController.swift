@@ -101,6 +101,18 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     // MARK: - Used to fetch the news headlines from the api.
+    fileprivate func newsLoaded() {
+        // Reload the table view when the data is loaded.
+         self.tableView.reloadData()
+        SVProgressHUD.dismiss()
+        // After the news is loaded ,dismiss the progress bar.
+        self.tableView.isHidden = false
+        // This is to stop the refreshing when the user pulls to refresh.
+        if self.refresher.isRefreshing {
+            self.refresher.endRefreshing()
+        }
+    }
+    
     /// This function is used to fetch headlines/latest news from the api. After the news
     /// has been loaded it reloads the table view to update it with the latest data.
     @objc
@@ -114,15 +126,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                 if response.statusCode == 200 {
                     // Parse JSON Response
                     self.headlines = try? JSONDecoder().decode(News.self, from: response.data)
-                    self.tableView.reloadData()
-                    // Reload the table view when the data is loaded.
-                    SVProgressHUD.dismiss()
-                    // After the news is loaded ,dismiss the progress bar.
-                    self.tableView.isHidden = false
-                    // This is to stop the refreshing when the user pulls to refresh.
-                    if self.refresher.isRefreshing {
-                        self.refresher.endRefreshing()
-                    }
+                    self.newsLoaded()
                 } else if response.statusCode == 500 {
                     // Display an Alert Box Here
                     self.presentAlert(message: "There was an error connecting to the server")

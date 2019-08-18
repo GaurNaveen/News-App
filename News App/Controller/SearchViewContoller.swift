@@ -232,6 +232,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
                 } else {
                     // TODO: Call the alert function and pass the error here.
                     print(response.data)
+                    SVProgressHUD.dismiss()
                 }
                 
             case .failure(_):

@@ -55,7 +55,7 @@ extension UIColor {
 
 extension UIImage {
     
-    static let names: [String] = ["politics", "sports", "business", "technology", "science", "cuba", "dominican republic", "ecuador", "el salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
+    static let names: [String] = ["bitcoin", "bitcoin", "bitcoin", "technology", "science", "cuba", "dominican republic", "ecuador", "el salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
     
 }
 
@@ -65,7 +65,6 @@ extension Array {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
-    
 }
 
 extension CGPoint {
@@ -73,5 +72,4 @@ extension CGPoint {
     func distance(from point: CGPoint) -> CGFloat {
         return hypot(point.x - x, point.y - y)
     }
-    
 }
