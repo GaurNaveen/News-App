@@ -67,7 +67,6 @@ class FavTopicsViewController: UIViewController {
             // When you have the news update the table view with it.
             if let favNews = news {
                 sectionsData.append(favNews)
-                print(favNews.totalResults)
                 if tableView == nil {
                     setTableViewConstraints()
                 }
@@ -82,10 +81,8 @@ class FavTopicsViewController: UIViewController {
             case .success(let response):
                 if response.statusCode == 200 {
                     var headlines = try? JSONDecoder().decode(News.self, from: response.data)
-                    print(headlines)
                 } else {
                     // TODO: Call the alert function and pass the error here.
-                    print(response.data)
                 }
                 
             case .failure(_):

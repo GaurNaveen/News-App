@@ -56,7 +56,6 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.delegate = self
         
-        print("Hello,12")
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.getNews(country: "us", category: categories[indexPath.row])) { (result) in
             switch result{
@@ -81,7 +80,6 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /// This works like magic.
         row = indexPath.row
-        print(row)
       performSegue(withIdentifier: "next", sender: self)
 //        let vc = storyboard!.instantiateViewController(withIdentifier: "next")
 //        self.present(vc, animated: true, completion: nil)

@@ -64,7 +64,6 @@ class NewsTopicController: UIViewController {
                 if response.statusCode == 200 {
                     // Parse JSON Response
                     let json = try! JSONDecoder().decode(News.self, from: response.data)
-                    print("naveen",json)
                 }
                 
             case .failure(let error):
@@ -79,7 +78,6 @@ class NewsTopicController: UIViewController {
     @objc
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
         if let label = gestureRecognizer.view as? UILabel {
-            print(label.text)
         }
     }
 }
@@ -121,7 +119,6 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("n--")
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

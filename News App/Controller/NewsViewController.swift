@@ -42,7 +42,6 @@ class NewsViewController: UIViewController, WKNavigationDelegate {
     
     /// This function dismiss the progress bar when the WKWebview has finished loading the page.
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("End")
         displayProgressCircle(status: "End")
     }
     
