@@ -7,8 +7,13 @@
 //
 
 import UIKit
-
+protocol TopOfTableView: class {
+    func goToTop()
+}
+let key = "GoToTop"
 class MainTabController: UITabBarController {
+    
+    var delegate2: TopOfTableView?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,10 +25,12 @@ class MainTabController: UITabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
             // Move to the top of the screen
-            print("tab bar item has been tapped")
-        
+           // print("tab bar item has been tapped")
+            //self.delegate2?.goToTop()
+        let name = Notification.Name(rawValue: key)
+        NotificationCenter.default.post(name: name, object: nil)
     }
-    
+
     /*
     // MARK: - Navigation
 

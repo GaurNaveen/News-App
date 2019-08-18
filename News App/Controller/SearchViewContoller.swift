@@ -31,6 +31,21 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         return refreshControl
     }()
     
+    @objc func goToTop() {
+        print("burrah")
+        tableView.setContentOffset(.zero, animated: true)
+    }
+    
+    let name = Notification.Name(rawValue: "GoToTop")
+    func createObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,6 +64,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show(withStatus: "Loading News")
+        
+        createObserver()
     }
     
     // TODO: When the user removes the text from the search bar then, change the news back to default.

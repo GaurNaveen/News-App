@@ -13,7 +13,7 @@ import UIKit
 import Moya
 import SVProgressHUD
 
-class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarDelegate {
+class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarDelegate,TopOfTableView {
     
     @IBOutlet weak var tableView: UITableView!
     private var count = 8 // intially count should be 0. After the news has been got , do reload.
@@ -28,12 +28,28 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         return refresherControl
     }()
     
+    @objc func goToTop() {
+        print("burrah")
+        tableView.setContentOffset(.zero, animated: true)
+    }
+    
+    let name = Notification.Name(rawValue: "GoToTop")
+    func createObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show(withStatus: "Loading News")
         getHeadlines() // call to the function that gets the headlines from the api.
+        createObserver()
     }
     
     /// This function is used to setup some of table view properties like
@@ -151,10 +167,9 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.tag == 1 {
-            print("tab bar item tapped")
-        }
-    }
+//    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//        if item.tag == 1 {
+//            print("tab bar item tapped")
+//        }
+//    }
 }

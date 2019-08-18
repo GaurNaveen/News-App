@@ -26,6 +26,21 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
     var newsHold = [String:News]()
     var categoryIndex: Int = 0
     
+    @objc func goToTop() {
+        print("burrah")
+        tableView.setContentOffset(.zero, animated: true)
+    }
+    
+    let name = Notification.Name(rawValue: "GoToTop")
+    func createObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -35,6 +50,8 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
         tableView.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         view.backgroundColor = UIColor.init(netHex: 0xDDDDDD)
         tableView.keyboardDismissMode = .onDrag
+        
+        createObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -14,6 +14,7 @@
 import Foundation
 import Moya
 
+
 final class FetchNews {
     
     var favNews: News? = nil
