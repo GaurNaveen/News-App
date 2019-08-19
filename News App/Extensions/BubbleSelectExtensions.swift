@@ -55,7 +55,7 @@ extension UIColor {
 
 extension UIImage {
     
-    static let names: [String] = ["bitcoin", "bitcoin", "bitcoin", "technology", "science", "cuba", "dominican republic", "ecuador", "el salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
+    static let names: [String] = ["bitcoin", "India", "Australia", "technology", "science", "World", "Facebook", "Apple", "USA", "Trump", "Modi", "UK", "Manchester United", "Football", "Sports", "Cricket"]
     
 }
 
