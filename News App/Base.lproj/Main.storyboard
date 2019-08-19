@@ -694,7 +694,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i6q-qn-4Zf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Vao-sI-hhK"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="Vao-sI-hhK"/>
                     <connections>
                         <outlet property="tableView" destination="xJ0-Ee-ba3" id="b66-yj-1gN"/>
                     </connections>

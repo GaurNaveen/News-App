@@ -24,6 +24,20 @@ class FavTopicsViewController: UIViewController {
     
     //This will have the news object for each of the topic that the user selected.
     var sectionsData: [News] = []
+    
+    @objc func goToTop() {
+        tableView.setContentOffset(.zero, animated: true)
+    }
+    
+    let name = Notification.Name(rawValue: "GoToTop")
+    func createObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +50,7 @@ class FavTopicsViewController: UIViewController {
        // setTableViewConstraints()
        // fetchSearchNews(searchQuery: "bitcoin")
         fetchNewsForFavTopics()
+        createObserver()
     }
     
     // MARK: - Table View Instantiation
