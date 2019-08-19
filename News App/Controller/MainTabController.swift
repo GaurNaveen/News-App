@@ -17,8 +17,6 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
     }
     
     @IBOutlet weak var heaadlinesTab: UITabBar!

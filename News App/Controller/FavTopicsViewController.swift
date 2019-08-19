@@ -11,6 +11,7 @@ import Moya
 class FavTopicsViewController: UIViewController {
     
     var favNews: News? = nil
+    var sectionCount = 0
     
     /// Declare Table View Variable
     @IBOutlet weak var tableView: UITableView!
@@ -42,10 +43,6 @@ class FavTopicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if tableView == nil {
-//            print("nil")
-//        }
-//
         /// TODO: Load the data first and then setup the table view.
        // setTableViewConstraints()
        // fetchSearchNews(searchQuery: "bitcoin")
@@ -75,6 +72,7 @@ class FavTopicsViewController: UIViewController {
             /// keep updating the table view as the news come along.
             // This is an async , so the print statement will be executed well before and will return nil.
             let news = fetchNews(favTopic: i)
+            sectionCount+=1
         }
     }
     
@@ -102,7 +100,6 @@ class FavTopicsViewController: UIViewController {
         }
         return favNews
     }
-    
     
     /// This function basically handles the error that might arise during the fetching of news.
     /// It will call a func that will display an alert box to the user.
@@ -162,8 +159,8 @@ extension FavTopicsViewController: UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as? FavTopicsCell else {
             fatalError("Couldn't dequeue Resusable cell")
         }
-        cell.setupNewsTitle(newsTitle: sectionsData[0].articles[indexPath.row].title!)
-        cell.loadImage(news: sectionsData[0], indexPath: indexPath)
+        cell.setupNewsTitle(newsTitle: sectionsData[indexPath.section].articles[indexPath.row].title!)
+        cell.loadImage(news: sectionsData[indexPath.section], indexPath: indexPath)
         return cell
     }
     

@@ -40,7 +40,4 @@ class FavTopicsCell: UITableViewCell {
             newsImage.kf.setImage(with: url)
         }
     }
-    
-    
-    
 }
