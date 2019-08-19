@@ -26,6 +26,7 @@
 		B63FD55122DB23FA002B6C71 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD55022DB23FA002B6C71 /* ExploreView.swift */; };
 		B63FD55322DB2579002B6C71 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD55222DB2579002B6C71 /* CollectionViewCell.swift */; };
 		B63FD55722E0265A002B6C71 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FD55622E0265A002B6C71 /* util.swift */; };
+		B640A4DE230A507D0052068D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640A4DD230A507D0052068D /* TestViewController.swift */; };
 		B6431AEF22E15DFB00619A34 /* IndividualCategoryNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */; };
 		B6431AF222E1DCDD00619A34 /* IndividualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6431AF122E1DCDD00619A34 /* IndividualCell.swift */; };
 		B64DA41822FC22EE0021B875 /* BubbleSelectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64DA41722FC22EE0021B875 /* BubbleSelectExtensions.swift */; };
@@ -87,6 +88,7 @@
 		B63FD55022DB23FA002B6C71 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		B63FD55222DB2579002B6C71 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		B63FD55622E0265A002B6C71 /* util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		B640A4DD230A507D0052068D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCategoryNewsController.swift; sourceTree = "<group>"; };
 		B6431AF122E1DCDD00619A34 /* IndividualCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualCell.swift; sourceTree = "<group>"; };
 		B64DA41722FC22EE0021B875 /* BubbleSelectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleSelectExtensions.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				B6431AEE22E15DFA00619A34 /* IndividualCategoryNewsController.swift */,
 				B63CE7E422F703F4004339D0 /* TopicSelectViewController.swift */,
 				B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */,
+				B640A4DD230A507D0052068D /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				B6EF678F21CFDC7900AAF04C /* Source.swift in Sources */,
 				B63FD55322DB2579002B6C71 /* CollectionViewCell.swift in Sources */,
 				B637201321DE4A89007BE810 /* NewsViewController.swift in Sources */,
+				B640A4DE230A507D0052068D /* TestViewController.swift in Sources */,
 				B6EF678721CE344500AAF04C /* NewsService.swift in Sources */,
 				B6EF679121CFDD6600AAF04C /* News.swift in Sources */,
 				B63FD54C22DB1E34002B6C71 /* ExploreViewController.swift in Sources */,

@@ -916,6 +916,20 @@
             </objects>
             <point key="canvasLocation" x="1791.2" y="962.807881773399"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="X7l-NX-kD5">
+            <objects>
+                <viewController id="DkC-jl-11c" customClass="TestViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlV-mZ-ubR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QE6-rF-I5V"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NE9-3V-pma" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Featured" width="60" height="60"/>
