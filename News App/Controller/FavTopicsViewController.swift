@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import SVProgressHUD
 class FavTopicsViewController: UIViewController {
     
     var favNews: News? = nil
@@ -48,12 +49,16 @@ class FavTopicsViewController: UIViewController {
        // fetchSearchNews(searchQuery: "bitcoin")
         fetchNewsForFavTopics()
         createObserver()
+        
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.show(withStatus: "Loading News")
     }
     
     // MARK: - Table View Instantiation
     
     /// Sets the delegate and data source for the table view.
     func setupTableView() {
+        SVProgressHUD.dismiss()
         if set == false {
             tableView.separatorColor = .black
             tableView.delegate = self
