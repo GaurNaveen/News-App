@@ -29,7 +29,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     }()
     
     @objc func goToTop() {
-        print("burrah")
         tableView.setContentOffset(.zero, animated: true)
     }
     

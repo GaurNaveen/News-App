@@ -31,7 +31,6 @@ final class FetchNews {
             case .success(let response):
                 if response.statusCode == 200 {
                     self.favNews = try? JSONDecoder().decode(News.self, from: response.data)
-                    print(self.favNews)
                 } else {
                     print(response.statusCode)
                     self.checkForNetworkErrors(response: response)

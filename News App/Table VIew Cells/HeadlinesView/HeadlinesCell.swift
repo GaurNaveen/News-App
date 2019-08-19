@@ -3,7 +3,8 @@
 //  News App
 //
 //  This files is used to setup the
-//  table view cell. It is used to 
+//  table view cell. It is used to display news title
+//  and the news thumbnail.
 //
 //  Created by Naveen Gaur on 31/12/18.
 //  Copyright © 2018 Naveen Gaur. All rights reserved.

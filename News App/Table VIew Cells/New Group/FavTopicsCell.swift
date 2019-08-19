@@ -7,30 +7,40 @@
 //
 
 import UIKit
-
+import Kingfisher
 class FavTopicsCell: UITableViewCell {
-
-    let cellView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        return view
-    }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupCellView()
+    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    func setupNewsTitle(newsTitle: String) {
+        titleLabel.text = newsTitle
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setupnewsImage(){
+        newsImage.layer.masksToBounds = true
+        newsImage.layer.cornerRadius = 5
+        newsImage.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
     
-    func setupCellView() {
-        addSubview(cellView)
-        cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = false
-        cellView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 4).isActive = false
-        cellView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = false
-        cellView.rightAnchor.constraint(equalTo: rightAnchor, constant: 8).isActive = false
+    //  MARK: - Load Image from URL.
+    /// Loads image in the image view for each cell.The image when loaded is cached.
+    /// This is because UITableView reuses cells. Loading them without caching will cause the
+    /// async requests to return at different time and mess up the order.
+    ///
+    /// - Parameters:
+    ///   - news: It is the news object that is loaded from the api. It
+    ///           contains info about the news.
+    ///   - indexPath: This is the index path of each table view cell.
+    func loadImage(news: News,indexPath: IndexPath) {
+        setupnewsImage()
+        
+        // Unwrap the optional
+        if let imageurl = news.articles[indexPath.row].urlToImage {
+            let url = URL(string: imageurl)
+            newsImage.kf.setImage(with: url)
+        }
     }
+    
+    
+    
 }

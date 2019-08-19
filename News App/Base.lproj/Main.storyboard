@@ -637,21 +637,71 @@
             </objects>
             <point key="canvasLocation" x="3672.8000000000002" y="961.33004926108379"/>
         </scene>
-        <!--Item-->
+        <!--FavTopicsViewController-->
         <scene sceneID="CfU-lr-7qt">
             <objects>
-                <viewController id="vER-Ee-Ffx" customClass="FavTopicsViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FavTopicsViewController" id="vER-Ee-Ffx" customClass="FavTopicsViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkO-uA-fmX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xJ0-Ee-ba3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="286" id="laZ-Df-YrC" customClass="FavTopicsCell" customModule="News_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="286"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="laZ-Df-YrC" id="Q0b-Mz-uwy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="285.66666666666669"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwe-tE-Rjm">
+                                                    <rect key="frame" x="15" y="183" width="360" height="92"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gW-iI-fDW">
+                                                    <rect key="frame" x="15" y="24" width="345" height="154"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7gW-iI-fDW" firstAttribute="top" secondItem="Q0b-Mz-uwy" secondAttribute="topMargin" constant="13" id="00o-I4-kgW"/>
+                                                <constraint firstItem="Pwe-tE-Rjm" firstAttribute="leading" secondItem="Q0b-Mz-uwy" secondAttribute="leading" constant="15" id="CMO-F0-8FR"/>
+                                                <constraint firstItem="7gW-iI-fDW" firstAttribute="leading" secondItem="Q0b-Mz-uwy" secondAttribute="leadingMargin" id="EVx-Eh-vTL"/>
+                                                <constraint firstItem="Pwe-tE-Rjm" firstAttribute="top" secondItem="7gW-iI-fDW" secondAttribute="bottom" constant="5" id="Ed3-d6-B0y"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pwe-tE-Rjm" secondAttribute="bottom" constant="10.67" id="Xrf-88-8gO"/>
+                                                <constraint firstItem="7gW-iI-fDW" firstAttribute="trailing" secondItem="Q0b-Mz-uwy" secondAttribute="trailingMargin" id="fyT-gn-xRO"/>
+                                                <constraint firstItem="Pwe-tE-Rjm" firstAttribute="top" secondItem="Q0b-Mz-uwy" secondAttribute="top" constant="183" id="r02-Na-a4P"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pwe-tE-Rjm" secondAttribute="trailing" id="ufA-TO-S3n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsImage" destination="7gW-iI-fDW" id="LFS-fd-Oog"/>
+                                            <outlet property="titleLabel" destination="Pwe-tE-Rjm" id="KT2-nm-2fM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xJ0-Ee-ba3" firstAttribute="trailing" secondItem="i6q-qn-4Zf" secondAttribute="trailing" id="3RO-FJ-WSc"/>
+                            <constraint firstItem="xJ0-Ee-ba3" firstAttribute="bottom" secondItem="i6q-qn-4Zf" secondAttribute="bottom" id="QlT-jQ-VPs"/>
+                            <constraint firstItem="xJ0-Ee-ba3" firstAttribute="leading" secondItem="i6q-qn-4Zf" secondAttribute="leading" id="WtZ-hK-dLV"/>
+                            <constraint firstItem="xJ0-Ee-ba3" firstAttribute="top" secondItem="i6q-qn-4Zf" secondAttribute="top" id="nav-S5-amB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="i6q-qn-4Zf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Vao-sI-hhK"/>
+                    <connections>
+                        <outlet property="tableView" destination="xJ0-Ee-ba3" id="b66-yj-1gN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubB-Y3-vKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="1027"/>
+            <point key="canvasLocation" x="712.79999999999995" y="1025.615763546798"/>
         </scene>
         <!--Topic Select View Controller-->
         <scene sceneID="MFe-xf-j62">
@@ -915,20 +965,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHS-aK-ctY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1791.2" y="962.807881773399"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="X7l-NX-kD5">
-            <objects>
-                <viewController id="DkC-jl-11c" customClass="TestViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zlV-mZ-ubR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="QE6-rF-I5V"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NE9-3V-pma" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
