@@ -31,26 +31,26 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         return refreshControl
     }()
     
+    // MARK: - Notification and Observer pattern has been implemented here.
+    /// Observer pattern is implemented on this file. Notification comes from MainTabController.
     @objc func goToTop() {
         print("burrah")
         tableView.setContentOffset(.zero, animated: true)
     }
     
     let name = Notification.Name(rawValue: "GoToTop")
+    /// This Function Needs to be called.
     func createObserver() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
     }
     
+    // Need to remove the observer after the tasks.
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        searchBar.delegate = self
-        searchBar.barTintColor = .black
+    fileprivate func setupTableView() {
         // Get user location to display below the search bar.
         //let currentUserLocation = NSLocale.current
         
@@ -60,7 +60,15 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         tableView.separatorColor = .black
         fetchNewsForRegion(countryCode: "au")
         tableView.keyboardDismissMode = .onDrag
-        tableView.refreshControl = refresher // adds the pull to refresh to the table view.
+        tableView.refreshControl = refresher
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        searchBar.delegate = self
+        searchBar.barTintColor = .black
+        setupTableView() // adds the pull to refresh to the table view.
         
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show(withStatus: "Loading News")
@@ -69,7 +77,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     }
     
     // TODO: When the user removes the text from the search bar then, change the news back to default.
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    fileprivate func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text!.isEmpty {
             fetchNewsForRegion(countryCode: "us")
         }
@@ -141,7 +149,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     /// appropiate description.
     ///
     /// - Parameter response: Response received from the API server.
-    func networkErrorCheck(response:Response) {
+    fileprivate func networkErrorCheck(response:Response) {
         if response.statusCode == 429 {
             // Present the error for the below status code
             presentAlert(message: "Rate Limit has been reached.")
@@ -156,7 +164,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     /// Presents a pop up box with a messag.
     ///
     /// - Parameter message: The message that needs to be displayed. Could be an error.
-    func presentAlert(message:String){
+    fileprivate func presentAlert(message:String){
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         // Add the 'OK button'
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -171,7 +179,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     ///   - tableView: table view
     ///   - section: section
     /// - Returns: an integer depecting the number of row required.
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    fileprivate func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headlines?.articles.count ?? 0
     }
 
@@ -181,7 +189,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     ///   - tableView: table view
     ///   - indexPath: index path
     /// - Returns: table view cell
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    fileprivate func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
             fatalError("Could not dequeue cell with identifier: cell")
@@ -194,7 +202,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     // MARK: - Provides animation on the table view cells.
     /// This function is called fraction of time before displaying the cells.It is being used to
     /// animate the table view cells.
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    fileprivate func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if tableView.isScrollEnabled {
             // Don't do anything.
@@ -213,7 +221,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     
     //TODO: When the user selects the row , take them to the webview. The webview has
     // already been creates so reuse that.
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    fileprivate func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "trendingTonewsView", sender: self)
     }
@@ -230,14 +238,14 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     /// This function excutes when the user is done with typing the search query. This funtion will pass the searched text to
     ///  fetchNews(), which will retrieve the news for the searched  text.
     /// - Parameter searchBar: default
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    fileprivate func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
             SVProgressHUD.show()
             fetchSearchNews(searchQuery: text)
             }
         }
     
-    func fetchSearchNews(searchQuery:String){
+    fileprivate func fetchSearchNews(searchQuery:String){
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.search(query: searchQuery)) { (result) in
             switch result {

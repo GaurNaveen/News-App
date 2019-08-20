@@ -20,6 +20,7 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
     
     var row = 0
     @IBOutlet weak var tableView: UITableView!
+    
     var categories = ["Sports","Business","Science","Technology"]
     var selectedNews: Article? = nil
     var headlines: News? = nil
@@ -61,6 +62,7 @@ class ExploreViewController: UIViewController,CollectionCellDelegate {
 
 extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
     
+    /// This determines how many rows there should be in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count 
     }
@@ -73,6 +75,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.delegate = self
         
+        // Load the data for the cells.
         let newsProvider = MoyaProvider<NewsService>()
         newsProvider.request(.getNews(country: "us", category: categories[indexPath.row])) { (result) in
             switch result{
@@ -116,6 +119,7 @@ extension ExploreViewController: UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+    /// This function will get the user to the next screen where the user can view the news article in full.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? IndividualCategoryNewsController {
             nextVC.news = newsHold[categories[row]]

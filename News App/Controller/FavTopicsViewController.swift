@@ -76,7 +76,7 @@ class FavTopicsViewController: UIViewController {
             /// TODO: load the news for each the topics selected by the user.Then
             /// keep updating the table view as the news come along.
             // This is an async , so the print statement will be executed well before and will return nil.
-            let news = fetchNews(favTopic: i)
+            let _ = fetchNews(favTopic: i)
             sectionCount+=1
         }
     }

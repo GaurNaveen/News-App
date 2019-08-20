@@ -117,10 +117,4 @@ extension NewsTopicController : UITableViewDelegate,UITableViewDataSource {
             cell.alpha = 1.0
         }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    }
 }

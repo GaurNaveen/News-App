@@ -28,6 +28,7 @@ class IndividualCategoryNewsController: UIViewController {
         setupHeading()
     }
     
+    /// This function sets up the table view.
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -48,11 +49,14 @@ class IndividualCategoryNewsController: UIViewController {
 }
 
 extension IndividualCategoryNewsController: UITableViewDelegate,UITableViewDataSource {
+    
+    ///  This function determines the number of rows in the table view.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  news?.articles.count ?? 0
         
     }
-
+    
+    /// This function handles the table view cell setup.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? IndividualCell else {
             fatalError("Couldn't deque cell with identifier cell")

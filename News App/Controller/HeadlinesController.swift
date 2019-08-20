@@ -28,16 +28,20 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         return refresherControl
     }()
     
+    
+    // MARK: - Notification and Observer pattern has been implemented here.
+    /// Observer is implemented here. Notification comes from the MainTabController.
     @objc func goToTop() {
         tableView.setContentOffset(.zero, animated: true)
     }
     
     let name = Notification.Name(rawValue: "GoToTop")
+    /// Important to call this function.
     func createObserver() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
     }
-    
+    // Need to remove the observer.
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -45,8 +49,11 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+        // Adds the loading indicator.
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.show(withStatus: "Loading News")
+        
         getHeadlines() // call to the function that gets the headlines from the api.
         createObserver()
     }
@@ -136,6 +143,7 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         newsProvider.request(.getNews(country: "us", category: "science")) { (result) in
             switch result {
             case .success(let response):
+                print("Boom",response.statusCode)
                 // If the api request has been successful , then set the headlines object
                 // with the data loaded and reload the table view.
                 if response.statusCode == 200 {
@@ -149,11 +157,14 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                     fatalError("Rate Limit have been reached.")
                 } else if response.statusCode == 400 {
                     fatalError("Bad Request. The request was unacceptable, often due to a missing or misconfigured parameter.")
+                } else {
+                    SVProgressHUD.dismiss()
                 }
                 
-            case .failure(let error):
+            case .failure(let _):
                 // handle this error better.
-                print("Here is the error \(error)")
+                SVProgressHUD.dismiss()
+                self.presentAlert(message: "Network Error")
             }
         }
     }
