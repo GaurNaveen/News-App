@@ -13,6 +13,7 @@ class FavTopicsViewController: UIViewController {
     
     var favNews: News? = nil
     var sectionCount = 0
+    var rowCount = 0
     
     /// Declare Table View Variable
     @IBOutlet weak var tableView: UITableView!
@@ -145,6 +146,12 @@ class FavTopicsViewController: UIViewController {
             setupTableView()
     }
     
+    // Before you segue send the data first.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = sectionsData[sectionCount].articles[rowCount].url!
+        }
+    }
 }
 
 // MARK: - Table View cell.
@@ -190,5 +197,14 @@ extension FavTopicsViewController: UITableViewDelegate,UITableViewDataSource {
     /// This Function sets the height of the section header view in which the title is displayed.
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
+    }
+    
+    // When the user taps on the news , they will be taken to the web view where they can view the
+    //  full news article.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sectionCount = indexPath.section
+        rowCount = indexPath.row
+        
+        performSegue(withIdentifier: "favtopicsToDashboard", sender: self)
     }
 }

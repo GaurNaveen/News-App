@@ -65,7 +65,7 @@ extension NewsService: TargetType {
             return .requestParameters(parameters: ["country":country], encoding: URLEncoding.default)
 
         case .search(let query):
-            return .requestParameters(parameters: ["q":query,"from":"2019-07-20","sortBy":"publishedAt","language":"en"], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["q":query,"from":"2019-08-22","sortBy":"publishedAt","language":"en"], encoding: URLEncoding.default)
         }
     }
     
