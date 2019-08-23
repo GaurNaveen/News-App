@@ -112,7 +112,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
     }
     
-    
     /// Function sets up the url for the clicked news article, so the WKWebview
     /// loads the right article.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

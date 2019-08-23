@@ -18,11 +18,15 @@ class PreViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var animationView: AnimationView!
     
+    let creditWebsiteUrl = "https://newsapi.org"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         startAnimation()
+        setupCreditView()
+        creditWebsite()
         
         /// This is IMP because if you just have the perform segue it won't work.
         /// As the view loads after some time and the func will be called before.
@@ -43,12 +47,10 @@ class PreViewController: UIViewController {
     func checkForUserSettings() {
         let data = UserDefaults.standard
         
-        guard let topics = data.array(forKey: "favtopics") as? [String] else {
-            fatalError("Nah Mate its empty")
+        if let topics = data.array(forKey: "favtopics") as? [String] {
+            userSelectedTopics = topics
         }
        
-        userSelectedTopics = topics
-        
         if userSelectedTopics.isEmpty {
             print("Its empty")
             performSegue(withIdentifier: "toTopicSelection", sender: self)
@@ -57,6 +59,51 @@ class PreViewController: UIViewController {
         }
     }
     
+    // MARK: - View to give credit to the news api data source.
+    let creditView: UIButton =  {
+        let view = UIButton()
+        return view
+    }()
+    
+    let creditLabel: UILabel =  {
+        let label = UILabel()
+        label.text = "News Powered by NewsApi.org"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    func setupCreditView() {
+        view.addSubview(creditView)
+        
+        // Setup AutoLayout
+        creditView.translatesAutoresizingMaskIntoConstraints = false
+        creditView.anchor(top: animationView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 50, left: 50, bottom: -150, right: -50))
+        
+        // Add the label to the view
+        view.addSubview(creditLabel)
+        creditLabel.translatesAutoresizingMaskIntoConstraints = false
+        creditLabel.anchor(top: creditView.topAnchor, leading: creditView.leadingAnchor, bottom: creditView.bottomAnchor, trailing: creditView.trailingAnchor)
+    }
+    
+    /// This function will take the user to the NewsApi.org website.
+    /// This func adds the tap button functionality on the programmatically create button.
+    func creditWebsite() {
+        creditView.addTarget(self, action: #selector(PreViewController.coolFunc(_:)), for: .touchUpInside)
+    }
+    
+    /// When the user taps on the button, it opens up the newsapi.org website.
+    @IBAction func coolFunc(_ sender:UIButton!) {
+        // do cool stuff here
+        performSegue(withIdentifier: "toMainDash", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? NewsViewController {
+            nextVC.url1 = creditWebsiteUrl
+        }
+    }
+
     /*
     // MARK: - Navigation
 

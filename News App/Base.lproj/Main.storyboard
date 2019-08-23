@@ -258,6 +258,7 @@
                         <outlet property="animationView" destination="zwr-cd-BEQ" id="aBu-PC-1xw"/>
                         <segue destination="NNa-06-uxT" kind="showDetail" identifier="toTopicSelection" id="8Cn-97-fvs"/>
                         <segue destination="OLV-7G-QWI" kind="show" identifier="toMainDashboard" id="Qvu-zP-RSk"/>
+                        <segue destination="xzT-8f-17z" kind="show" identifier="toMainDash" id="hgm-HK-HLZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvx-KP-Wje" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -859,7 +860,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzD-dM-VQv">
-                                <rect key="frame" x="0.0" y="99" width="375" height="630"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="723"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -999,6 +1000,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qvu-zP-RSk"/>
-        <segue reference="o8w-FW-c0I"/>
+        <segue reference="hgm-HK-HLZ"/>
     </inferredMetricsTieBreakers>
 </document>
