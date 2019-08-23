@@ -54,6 +54,10 @@ class FavTopicsViewController: UIViewController {
         SVProgressHUD.show(withStatus: "Loading News")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Table View Instantiation
     
     /// Sets the delegate and data source for the table view.
@@ -140,6 +144,7 @@ class FavTopicsViewController: UIViewController {
             sectionsData.append(favnews)
             setupTableView()
     }
+    
 }
 
 // MARK: - Table View cell.

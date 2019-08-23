@@ -33,6 +33,7 @@
 		B64E02D52308073500D14EE0 /* FavTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */; };
 		B64E02D92308189A00D14EE0 /* FavTopicsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02D82308189A00D14EE0 /* FavTopicsCell.swift */; };
 		B64E02DB2308F1A200D14EE0 /* FetchNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02DA2308F1A200D14EE0 /* FetchNewsService.swift */; };
+		B64E7F1B230E4969007FC818 /* PreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E7F1A230E4969007FC818 /* PreViewController.swift */; };
 		B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675521CE241800AAF04C /* AppDelegate.swift */; };
 		B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675921CE241800AAF04C /* Main.storyboard */; };
 		B6EF675D21CE241C00AAF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675C21CE241C00AAF04C /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTopicsViewController.swift; sourceTree = "<group>"; };
 		B64E02D82308189A00D14EE0 /* FavTopicsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTopicsCell.swift; sourceTree = "<group>"; };
 		B64E02DA2308F1A200D14EE0 /* FetchNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNewsService.swift; sourceTree = "<group>"; };
+		B64E7F1A230E4969007FC818 /* PreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewController.swift; sourceTree = "<group>"; };
 		B6EF675221CE241800AAF04C /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EF675521CE241800AAF04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EF675A21CE241800AAF04C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				B63CE7E422F703F4004339D0 /* TopicSelectViewController.swift */,
 				B64E02D42308073500D14EE0 /* FavTopicsViewController.swift */,
 				B640A4DD230A507D0052068D /* TestViewController.swift */,
+				B64E7F1A230E4969007FC818 /* PreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				B6EF678421CE268400AAF04C /* Extensions.swift in Sources */,
 				B63BB68221E47D81002A359E /* NewsTopicsCell.swift in Sources */,
 				B63FD50422D4845C002B6C71 /* SearchViewContoller.swift in Sources */,
+				B64E7F1B230E4969007FC818 /* PreViewController.swift in Sources */,
 				B63FD55722E0265A002B6C71 /* util.swift in Sources */,
 				B63CE7E522F703F4004339D0 /* TopicSelectViewController.swift in Sources */,
 				B6431AF222E1DCDD00619A34 /* IndividualCell.swift in Sources */,

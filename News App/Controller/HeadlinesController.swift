@@ -28,7 +28,6 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
         return refresherControl
     }()
     
-    
     // MARK: - Notification and Observer pattern has been implemented here.
     /// Observer is implemented here. Notification comes from the MainTabController.
     @objc func goToTop() {
@@ -161,10 +160,10 @@ class HeadlinesController: UIViewController,UITableViewDelegate,UITableViewDataS
                     SVProgressHUD.dismiss()
                 }
                 
-            case .failure(let _):
+            case .failure(let error):
                 // handle this error better.
                 SVProgressHUD.dismiss()
-                self.presentAlert(message: "Network Error")
+                self.presentAlert(message: "Network Error \(error)")
             }
         }
     }

@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 
+
 enum NewsService {
     case getNews(country: String,category: String)
     case wsj(domain: String)
@@ -62,8 +63,9 @@ extension NewsService: TargetType {
             return .requestParameters(parameters: ["domains":domain], encoding: URLEncoding.default)
         case .region(let country):
             return .requestParameters(parameters: ["country":country], encoding: URLEncoding.default)
+
         case .search(let query):
-            return .requestParameters(parameters: ["q":query,"from":"2019-07-19","sortBy":"publishedAt","language":"en"], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["q":query,"from":"2019-07-20","sortBy":"publishedAt","language":"en"], encoding: URLEncoding.default)
         }
     }
     

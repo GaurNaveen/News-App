@@ -20,7 +20,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     private lazy var refresher1: UIRefreshControl = {
         let refresherControl = UIRefreshControl()
         refresherControl.tintColor = .black
-       // refresherControl.addTarget(self, action: Selector("getNews"), for: .valueChanged)
+        // refresherControl.addTarget(self, action: Selector("getNews"), for: .valueChanged)
         return refresherControl
     }()
     
@@ -179,7 +179,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     ///   - tableView: table view
     ///   - section: section
     /// - Returns: an integer depecting the number of row required.
-    fileprivate func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return headlines?.articles.count ?? 0
     }
 
@@ -189,7 +189,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
     ///   - tableView: table view
     ///   - indexPath: index path
     /// - Returns: table view cell
-    fileprivate func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SearchCell else {
             fatalError("Could not dequeue cell with identifier: cell")
@@ -225,7 +225,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "trendingTonewsView", sender: self)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextVC = segue.destination as? NewsViewController {

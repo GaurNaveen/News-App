@@ -22,6 +22,10 @@ class TopicSelectViewController: UIViewController {
     }
 
     @IBAction func nextButton(_ sender: Any) {
+        // Persist the user selected topics.
+        let data = UserDefaults.standard
+        data.set(userSelectedTopics, forKey: "favtopics")
+        
         performSegue(withIdentifier:"moveToMainTabBar" , sender: self)
     }
     
@@ -51,13 +55,11 @@ class TopicSelectViewController: UIViewController {
         // let node = ImageNode(text: name.capitalized, image: UIImage(named: name), color: color, radius: 40)
         // magnetic.addChild(node)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         nextButton.alpha = 0
-    
     }
     
     var magnetic: Magnetic {
@@ -72,10 +74,7 @@ class TopicSelectViewController: UIViewController {
             add([])
         }
     }
-    
-    // MARK: - Move Forward
 }
-
 // MARK: - MagneticDelegate
 extension TopicSelectViewController: MagneticDelegate {
     

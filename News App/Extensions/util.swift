@@ -24,4 +24,14 @@ class Util {
             }
         }
     }
+    
+    
+    func getDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let result = formatter.string(from: date)
+        
+        return result
+    }
 }

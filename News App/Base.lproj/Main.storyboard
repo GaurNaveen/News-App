@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NNa-06-uxT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4O-9r-tKk">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -232,34 +232,24 @@
             </objects>
             <point key="canvasLocation" x="-924" y="416.74876847290642"/>
         </scene>
-        <!--Category Selection View Controller-->
+        <!--Pre View Controller-->
         <scene sceneID="Mto-Tq-D7b">
             <objects>
-                <viewController id="N4O-9r-tKk" customClass="CategorySelectionViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="N4O-9r-tKk" customClass="PreViewController" customModule="News_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSA-78-QF8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="Z6v-37-bC9">
-                                <rect key="frame" x="67" y="187" width="240" height="128"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Ytt-rB-JYW" firstAttribute="trailing" secondItem="Z6v-37-bC9" secondAttribute="trailing" constant="68" id="OQp-LW-pbj"/>
-                            <constraint firstItem="Ytt-rB-JYW" firstAttribute="bottom" secondItem="Z6v-37-bC9" secondAttribute="bottom" constant="463" id="Uzo-gL-lZz"/>
-                            <constraint firstItem="Z6v-37-bC9" firstAttribute="top" secondItem="Ytt-rB-JYW" secondAttribute="top" constant="143" id="fMb-tQ-ZYZ"/>
-                            <constraint firstItem="Z6v-37-bC9" firstAttribute="leading" secondItem="Ytt-rB-JYW" secondAttribute="leading" constant="67" id="goE-2D-NLq"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ytt-rB-JYW"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="Z6v-37-bC9" id="suq-RV-xKK"/>
+                        <segue destination="NNa-06-uxT" kind="showDetail" identifier="toTopicSelection" id="8Cn-97-fvs"/>
+                        <segue destination="OLV-7G-QWI" kind="show" identifier="toMainDashboard" id="Qvu-zP-RSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvx-KP-Wje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-156" y="450"/>
+            <point key="canvasLocation" x="-2833" y="-285"/>
         </scene>
         <!--Trending-->
         <scene sceneID="PTu-j5-8aJ">
@@ -899,7 +889,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOg-Op-VGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103" y="-330"/>
+            <point key="canvasLocation" x="-2402" y="569"/>
         </scene>
         <!--Headlines-->
         <scene sceneID="7EA-vs-AcC">
@@ -972,10 +962,10 @@
         <image name="ICON" width="20" height="20"/>
         <image name="NewsIcon" width="20" height="20"/>
         <image name="arrow" width="100" height="100"/>
-        <image name="back" width="48" height="48"/>
         <image name="category" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qvu-zP-RSk"/>
         <segue reference="9Qc-0h-xpp"/>
     </inferredMetricsTieBreakers>
 </document>
