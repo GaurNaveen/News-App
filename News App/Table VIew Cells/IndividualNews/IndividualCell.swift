@@ -28,7 +28,7 @@ class IndividualCell: UITableViewCell {
     
     func loadImage(fetchedNews: News,row:Int){
         // Unrap the optional
-        if let imageurl = fetchedNews.articles[row ?? 0].urlToImage {
+        if let imageurl = fetchedNews.articles[row ].urlToImage {
             newsImage.downloaded(from: imageurl)
         }
     }

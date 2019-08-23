@@ -12,6 +12,7 @@ target 'News App' do
   pod 'Magnetic'
   pod 'SIFloatingCollection'
   pod "Magnetic"
+  pod 'lottie-ios'
 target 'News AppTests' do
     inherit! :search_paths
     # Pods for testing

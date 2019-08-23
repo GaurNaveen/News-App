@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
   - Kingfisher (5.7.0)
+  - lottie-ios (3.1.2)
   - Magnetic (3.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Kingfisher
+  - lottie-ios
   - Magnetic
   - Moya
   - SIFloatingCollection
@@ -22,6 +24,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
+    - lottie-ios
     - Magnetic
     - Moya
     - Result
@@ -31,12 +34,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
+  lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   Magnetic: 58cb8c73dfe73f783ede7719b80202f90c94bdd9
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SIFloatingCollection: 096160b220e3a1b1cbcf349108ee24d3aa6b86de
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: f5074f33eb55d9f14888cd4fb4d44d780a6cc060
+PODFILE CHECKSUM: 1c82be0d1d664d246ce0b4050e8c6eb0c0a31fc2
 
 COCOAPODS: 1.5.3

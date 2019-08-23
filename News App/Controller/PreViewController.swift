@@ -11,21 +11,30 @@
 //
 
 import UIKit
+import Lottie
 
 class PreViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    @IBOutlet private weak var animationView: AnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        startAnimation()
         
         /// This is IMP because if you just have the perform segue it won't work.
         /// As the view loads after some time and the func will be called before.
         /// So adding a delay here so the view loads fully.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
             self.checkForUserSettings()
         })
-        
+    }
+    
+    func startAnimation() {
+        animationView.animation = Animation.named("952-news")
+        animationView.play()
     }
     
     /// This Function checks if a user has already selected some fav topics.

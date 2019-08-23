@@ -45,6 +45,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(goToTop), name: name, object: nil)
     }
     
+    
     // Need to remove the observer after the tasks.
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -171,7 +172,6 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewData
         alertController.addAction(okAction)
         self.present(alertController,animated: true,completion: nil)
     }
-    
     
     /// This function deciedes how many rows the table view should have.
     ///

@@ -77,7 +77,7 @@ class NewsTopicController: UIViewController {
     /// - Parameter _ges: Takes in a UIGestureRecognizer as a param.
     @objc
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
-        if let label = gestureRecognizer.view as? UILabel {
+        if (gestureRecognizer.view as? UILabel) != nil {
         }
     }
 }

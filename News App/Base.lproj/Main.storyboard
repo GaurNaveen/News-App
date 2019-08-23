@@ -239,17 +239,30 @@
                     <view key="view" contentMode="scaleToFill" id="QSA-78-QF8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-cd-BEQ" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="150" width="359" height="397"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zwr-cd-BEQ" firstAttribute="leading" secondItem="Ytt-rB-JYW" secondAttribute="leading" id="5II-P3-nG1"/>
+                            <constraint firstItem="zwr-cd-BEQ" firstAttribute="top" secondItem="Ytt-rB-JYW" secondAttribute="top" constant="106" id="Td4-sh-4fA"/>
+                            <constraint firstItem="Ytt-rB-JYW" firstAttribute="bottom" secondItem="zwr-cd-BEQ" secondAttribute="bottom" constant="231" id="dcH-ir-wTg"/>
+                            <constraint firstItem="Ytt-rB-JYW" firstAttribute="trailing" secondItem="zwr-cd-BEQ" secondAttribute="trailing" constant="16" id="ibR-uU-5bX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ytt-rB-JYW"/>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="zwr-cd-BEQ" id="aBu-PC-1xw"/>
                         <segue destination="NNa-06-uxT" kind="showDetail" identifier="toTopicSelection" id="8Cn-97-fvs"/>
                         <segue destination="OLV-7G-QWI" kind="show" identifier="toMainDashboard" id="Qvu-zP-RSk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvx-KP-Wje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2833" y="-285"/>
+            <point key="canvasLocation" x="-2834.4000000000001" y="-285.22167487684732"/>
         </scene>
         <!--Trending-->
         <scene sceneID="PTu-j5-8aJ">

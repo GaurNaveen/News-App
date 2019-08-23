@@ -80,6 +80,7 @@ class NewsTopicsCell: UITableViewCell {
         topicSelectionView2.addSubview(topicLabel2)
         topicSelectionView3.addSubview(topicLabel3)
         setAutoLayoutOnLabels() // set auto layout on these labels.
+        
         // Set the topic names.
         topicLabel1.text = topicName1
         topicLabel2.text = topicName2

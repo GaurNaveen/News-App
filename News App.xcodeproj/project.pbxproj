@@ -34,6 +34,7 @@
 		B64E02D92308189A00D14EE0 /* FavTopicsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02D82308189A00D14EE0 /* FavTopicsCell.swift */; };
 		B64E02DB2308F1A200D14EE0 /* FetchNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E02DA2308F1A200D14EE0 /* FetchNewsService.swift */; };
 		B64E7F1B230E4969007FC818 /* PreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E7F1A230E4969007FC818 /* PreViewController.swift */; };
+		B6BCDE98230FF16E000033F8 /* 952-news.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BCDE97230FF16D000033F8 /* 952-news.json */; };
 		B6EF675621CE241800AAF04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF675521CE241800AAF04C /* AppDelegate.swift */; };
 		B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675921CE241800AAF04C /* Main.storyboard */; };
 		B6EF675D21CE241C00AAF04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EF675C21CE241C00AAF04C /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		B64E02D82308189A00D14EE0 /* FavTopicsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavTopicsCell.swift; sourceTree = "<group>"; };
 		B64E02DA2308F1A200D14EE0 /* FetchNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNewsService.swift; sourceTree = "<group>"; };
 		B64E7F1A230E4969007FC818 /* PreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreViewController.swift; sourceTree = "<group>"; };
+		B6BCDE97230FF16D000033F8 /* 952-news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "952-news.json"; sourceTree = "<group>"; };
 		B6EF675221CE241800AAF04C /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EF675521CE241800AAF04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EF675A21CE241800AAF04C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		B64E7F1C230FF0C7007FC818 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				B6BCDE97230FF16D000033F8 /* 952-news.json */,
+			);
+			path = "Lottie Animations";
+			sourceTree = "<group>";
+		};
 		B6EF674921CE241800AAF04C = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +264,7 @@
 		B6EF675421CE241800AAF04C /* News App */ = {
 			isa = PBXGroup;
 			children = (
+				B64E7F1C230FF0C7007FC818 /* Lottie Animations */,
 				B63BB67D21E47AA1002A359E /* Helper */,
 				B6EF678D21CFDAE300AAF04C /* Controller */,
 				B6EF678921CFDAA200AAF04C /* Model */,
@@ -458,6 +469,7 @@
 				B6EF676021CE241C00AAF04C /* LaunchScreen.storyboard in Resources */,
 				B6EF675D21CE241C00AAF04C /* Assets.xcassets in Resources */,
 				B6EF675B21CE241800AAF04C /* Main.storyboard in Resources */,
+				B6BCDE98230FF16E000033F8 /* 952-news.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +550,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SIFloatingCollection/SIFloatingCollection.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -550,6 +563,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIFloatingCollection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
