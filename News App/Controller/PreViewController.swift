@@ -18,12 +18,19 @@ class PreViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        /// This is IMP because if you just have the perform segue it won't work.
+        /// As the view loads after some time and the func will be called before.
+        /// So adding a delay here so the view loads fully.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.checkForUserSettings()
         })
         
     }
     
+    /// This Function checks if a user has already selected some fav topics.
+    /// if Yes, it will take them straight to headlines otherwise it will take them to
+    /// the bubble topic selection screen.
     func checkForUserSettings() {
         let data = UserDefaults.standard
         
