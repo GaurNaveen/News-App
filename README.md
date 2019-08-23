@@ -13,7 +13,7 @@ The app is primarily being developed by me as a part of my personal project. Thi
 - [Xcode](https://itunes.apple.com/us/app/xcode/id497799835) - The easiest way to get Xcode is from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12), but you can also download it from [developer.apple.com](https://developer.apple.com/) if you have an AppleID registered with an Apple Developer account.
 
 ## Screenshots 
-![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img1.png "Op") &nbsp;&nbsp; ![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img2.png "Op") &nbsp;&nbsp; ![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img3.png "Op")
+![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img1.jpg "Op") &nbsp;&nbsp; ![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img2.jpg "Op") &nbsp;&nbsp; ![Alt text](https://github.com/GaurNaveen/News-App/blob/master/Screenshots/Img3.jpg "Op")
 
 **You should be able to open `NewsApp.xcodeproject` and run the app on the iOS Simulator**
 ## Guidelines
